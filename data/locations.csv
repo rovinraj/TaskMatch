@@ -1,0 +1,16 @@
+location_id,user_id,city,state,zip_code
+1,1,Richardson,TX,75080
+2,2,Richardson,TX,75081
+3,3,Plano,TX,75023
+4,4,Garland,TX,75040
+5,5,Allen,TX,75002
+6,6,Dallas,TX,75201
+7,7,Frisco,TX,75034
+8,8,Richardson,TX,75082
+9,9,Plano,TX,75024
+10,10,Dallas,TX,75205
+11,11,Garland,TX,75041
+12,12,Allen,TX,75013
+13,13,McKinney,TX,75069
+14,14,Frisco,TX,75035
+15,15,Richardson,TX,75080

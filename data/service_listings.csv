@@ -1,0 +1,18 @@
+listing_id,provider_id,category_id,title,description,price,status
+1,1,1,Emergency Leak Repair,Fast response for all types of residential water leaks. Supply lines P-traps and pipe connections.,75.00,active
+2,1,1,Drain Cleaning & Unclogging,Professional drain clearing using snake and hydro-jet equipment for kitchen and bathroom drains.,85.00,active
+3,1,1,Water Heater Installation,Full replacement or new installation of tank and tankless water heaters.,150.00,active
+4,1,1,Pipe Replacement,Partial or full pipe replacement for aging galvanized or damaged copper lines.,75.00,active
+5,2,2,Outlet & Switch Repair,Fix dead outlets tripped breakers and faulty switches. Same-day service available.,90.00,active
+6,2,2,Panel Upgrade,Upgrade from 100A to 200A service panel. Fully permitted and inspected.,90.00,active
+7,2,2,Ceiling Fan Installation,Install or replace ceiling fans with or without existing wiring.,90.00,active
+8,3,8,Custom Shelving & Storage,Built-in shelving units closet organizers and wall-mounted storage solutions.,65.00,active
+9,3,8,Door Repair & Installation,Repair sticking doors replace hinges and install new interior or exterior doors.,65.00,active
+10,3,8,Deck Repair,Repair rotted boards replace railings and refinish existing decks.,65.00,active
+11,4,1,Under-Sink Repair,Specialized in P-trap supply line and shut-off valve repairs under kitchen and bathroom sinks.,68.00,active
+12,4,1,Fixture Replacement,Remove and install new faucets sinks toilets and shower fixtures.,68.00,active
+13,4,1,Kitchen Renovation Plumbing,Rough-in and finish plumbing for kitchen remodels.,68.00,active
+14,5,1,Full Plumbing Inspection,Comprehensive inspection of residential plumbing systems with written report.,90.00,active
+15,5,1,Sewer Line Repair,Camera inspection and repair of main sewer lines.,90.00,active
+16,6,3,HVAC Tune-Up,Seasonal maintenance for heating and cooling systems.,85.00,active
+17,6,1,Moisture & Leak Control,Identify and eliminate sources of moisture intrusion in kitchens and bathrooms.,85.00,active
