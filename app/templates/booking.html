@@ -1,183 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fixr — Book Marcus Rivera</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Book {{ provider.name }}{% endblock %}
 
-  <nav>
-    <a class="logo" href="home.html">fix<span>r</span></a>
-    <div class="nav-links">
-      <a class="nav-link keep" href="home.html">Find a Pro</a>
-      <a class="nav-link"      href="dashboard.html">Dashboard</a>
-      <div class="nav-sep"></div>
-      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
-      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
-      <div style="display:flex;gap:.6rem;align-items:center;">
-        <a class="btn-nav-outline" href="login.html">Log In</a>
-        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
-      </div>
+{% block content %}
+<div class="booking-page">
+
+  <div class="booking-header">
+    <a class="results-back" href="{{ url_for('main.provider_profile', provider_id=provider.provider_id) }}">← Back to Profile</a>
+    <div style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:.9rem;">
+      Book {{ provider.name }}
     </div>
-  </nav>
-
-    <div class="booking-page">
-
-      <div class="booking-header">
-        <button class="results-back" onclick="window.location.href='provider-profile.html'">← Back to Profile</button>
-        <div style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:.9rem;">
-          Book Marcus Rivera
-        </div>
-        <div class="booking-steps">
-          <div class="bstep active"   id="bstep1"><span class="bstep-num">1</span><span class="bstep-lbl">Date & Time</span></div>
-          <div class="bstep-line"></div>
-          <div class="bstep inactive" id="bstep2"><span class="bstep-num">2</span><span class="bstep-lbl">Job Details</span></div>
-          <div class="bstep-line"></div>
-          <div class="bstep inactive" id="bstep3"><span class="bstep-num">3</span><span class="bstep-lbl">Confirm</span></div>
-        </div>
-      </div>
-
-      <div class="booking-body">
-
-        <!-- Step 1: Date & Time -->
-        <div class="booking-step-content active" id="bstep-content1">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
-
-            <!-- Calendar -->
-            <div>
-              <div class="section-eyebrow">Select a date</div>
-              <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:var(--rl); padding:1.25rem;">
-                <div class="cal-header">
-                  <button class="cal-nav-btn">‹</button>
-                  <div class="cal-title" id="cal-month-label">April 2026</div>
-                  <button class="cal-nav-btn">›</button>
-                </div>
-                <div class="cal-grid" id="cal-days-header"></div>
-                <div class="cal-grid" id="cal-days"></div>
-              </div>
-            </div>
-
-            <!-- Time slots -->
-            <div>
-              <div class="section-eyebrow">Select a time</div>
-              <div class="time-grid" id="time-slots"></div>
-              <div style="font-size:.68rem; color:var(--ink-faint); margin-top:.75rem; display:flex; gap:.5rem; align-items:center;">
-                <span style="width:10px; height:10px; border-radius:2px; background:var(--amber); display:inline-block;"></span> Selected &nbsp;
-                <span style="width:10px; height:10px; border-radius:2px; background:var(--border); display:inline-block;"></span> Available &nbsp;
-                <span style="width:10px; height:10px; border-radius:2px; background:var(--border); opacity:.4; display:inline-block;"></span> Taken
-              </div>
-            </div>
-
-          </div>
-          <div style="margin-top:1.75rem; display:flex; justify-content:flex-end;">
-            <button class="btn-amber" style="padding:.8rem 2rem;" onclick="nextBookStep(2)">Continue → Job Details</button>
-          </div>
-        </div>
-
-        <!-- Step 2: Job Details -->
-        <div class="booking-step-content" id="bstep-content2">
-          <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:2rem;">
-
-            <div>
-              <div class="form-field">
-                <label class="label">Describe the job</label>
-                <textarea rows="4" placeholder="Describe what needs to be fixed, access requirements…">Water dripping under my kitchen sink — cabinet floor is damp. Noticed it started 2 days ago.</textarea>
-              </div>
-              <div class="form-row cols-2">
-                <div class="form-field">
-                  <label class="label">Service address</label>
-                  <input type="text" value="412 Maple Ave, Richardson TX 75080" />
-                </div>
-                <div class="form-field">
-                  <label class="label">Unit / Access notes</label>
-                  <input type="text" placeholder="e.g. Gate code, apt #…" />
-                </div>
-              </div>
-              <div class="form-row cols-2">
-                <div class="form-field">
-                  <label class="label">Estimated budget</label>
-                  <input type="text" placeholder="$150–$300" />
-                </div>
-                <div class="form-field">
-                  <label class="label">Urgency</label>
-                  <select>
-                    <option>Standard</option>
-                    <option>Urgent (+15%)</option>
-                    <option>Emergency (+30%)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-field">
-                <label class="label">Attach photos (optional)</label>
-                <div class="upload-zone">
-                  <div class="upload-icon">📷</div>
-                  <div class="upload-text">Drop images here or click to upload</div>
-                  <div class="upload-sub">JPG, PNG up to 10MB each · max 5 files</div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div class="section-eyebrow">Booking Summary</div>
-              <div class="booking-summary">
-                <div class="sum-row"><span class="sum-lbl">Provider</span><span class="sum-val">Marcus Rivera</span></div>
-                <div class="sum-row"><span class="sum-lbl">Date</span><span class="sum-val" id="sum-date">Apr 12, 2026</span></div>
-                <div class="sum-row"><span class="sum-lbl">Time</span><span class="sum-val" id="sum-time">10:00 AM</span></div>
-                <div class="sum-row"><span class="sum-lbl">Rate</span><span class="sum-val">$75/hr</span></div>
-                <div class="sum-row"><span class="sum-lbl">Est. Duration</span><span class="sum-val">1–2 hrs</span></div>
-                <div class="sum-row"><span class="sum-lbl">Est. Total</span><span class="sum-val">$75–$150</span></div>
-              </div>
-              <div style="font-size:.72rem; color:var(--ink-faint); line-height:1.75; font-family:'Libre Baskerville',serif;">
-                Final cost depends on actual time and materials. Marcus will provide a written estimate on arrival before starting work.
-              </div>
-            </div>
-
-          </div>
-          <div style="margin-top:1.75rem; display:flex; gap:.75rem; justify-content:flex-end;">
-            <button class="btn-outline" onclick="nextBookStep(1)">← Back</button>
-            <button class="btn-amber" style="padding:.8rem 2rem;" onclick="nextBookStep(3)">Confirm Booking →</button>
-          </div>
-        </div>
-
-        <!-- Step 3: Confirmation -->
-        <div class="booking-step-content" id="bstep-content3">
-          <div class="confirm-card">
-            <div class="confirm-icon">✅</div>
-            <div class="confirm-title">Booking Confirmed!</div>
-            <p class="confirm-sub">
-              Marcus Rivera has been notified and will confirm within 1 hour.
-              You'll receive a message and email with the details.
-            </p>
-            <div class="booking-summary" style="text-align:left; max-width:380px; margin:0 auto 1.5rem;">
-              <div class="sum-row"><span class="sum-lbl">Provider</span><span class="sum-val">Marcus Rivera · Plumber</span></div>
-              <div class="sum-row"><span class="sum-lbl">Date & Time</span><span class="sum-val">Sat Apr 12 · 10:00 AM</span></div>
-              <div class="sum-row"><span class="sum-lbl">Address</span><span class="sum-val">412 Maple Ave, Richardson TX</span></div>
-              <div class="sum-row"><span class="sum-lbl">Booking ID</span><span class="sum-val" style="color:var(--amber);">#FXR-20260412-0871</span></div>
-              <div class="sum-row"><span class="sum-lbl">Est. Total</span><span class="sum-val">$75–$150</span></div>
-            </div>
-            <div style="display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap;">
-              <button class="btn-amber"   onclick="window.location.href='messages.html'">✉ Message Marcus</button>
-              <button class="btn-outline" onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /.booking-body -->
+    {% if not confirmed %}
+    <div class="booking-steps">
+      <div class="bstep active" id="bstep1"><span class="bstep-num">1</span><span class="bstep-lbl">Date & Time</span></div>
+      <div class="bstep-line"></div>
+      <div class="bstep inactive" id="bstep2"><span class="bstep-num">2</span><span class="bstep-lbl">Job Details</span></div>
+      <div class="bstep-line"></div>
+      <div class="bstep inactive" id="bstep3"><span class="bstep-num">3</span><span class="bstep-lbl">Confirm</span></div>
     </div>
+    {% endif %}
   </div>
 
+  <div class="booking-body">
 
-  <!-- ══════════════════════════════════════
-       PAGE: MESSAGES
-  ══════════════════════════════════════ -->
+    {% if confirmed %}
+    <!-- Confirmation -->
+    <div class="booking-step-content active">
+      <div class="confirm-card">
+        <div class="confirm-icon">✅</div>
+        <div class="confirm-title">Booking Confirmed!</div>
+        <p class="confirm-sub">
+          {{ provider.name }} has been notified and will confirm shortly.
+          You'll receive a message with the details.
+        </p>
+        <div class="booking-summary" style="text-align:left; max-width:380px; margin:0 auto 1.5rem;">
+          <div class="sum-row"><span class="sum-lbl">Provider</span><span class="sum-val">{{ provider.name }}</span></div>
+          <div class="sum-row"><span class="sum-lbl">Date</span><span class="sum-val">{{ scheduled_date }}</span></div>
+          <div class="sum-row"><span class="sum-lbl">Time</span><span class="sum-val">{{ scheduled_time }}</span></div>
+          <div class="sum-row"><span class="sum-lbl">Booking ID</span><span class="sum-val" style="color:var(--amber);">#{{ booking_id }}</span></div>
+        </div>
+        <div style="display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap;">
+          <a class="btn-amber" style="text-decoration:none;" href="{{ url_for('main.message_thread', partner_id=provider.user_id) }}">✉ Message {{ provider.name.split(' ')[0] }}</a>
+          <a class="btn-outline" style="text-decoration:none;" href="{{ url_for('main.dashboard') }}">Go to Dashboard</a>
+        </div>
+      </div>
+    </div>
 
+    {% else %}
+
+    <form method="POST" action="{{ url_for('main.book', provider_id=provider.provider_id) }}" id="booking-form">
+      {% if request_id %}
+      <input type="hidden" name="request_id" value="{{ request_id }}" />
+      {% endif %}
+
+      <!-- Step 1: Date & Time -->
+      <div class="booking-step-content active" id="bstep-content1">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+          <div>
+            <div class="section-eyebrow">Select a date</div>
+            <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:var(--rl); padding:1.25rem;">
+              <div style="margin-bottom:.5rem;">
+                <input type="date" name="scheduled_date" id="scheduled-date" required
+                  style="width:100%; padding:.5rem; font-family:'DM Mono',monospace; font-size:.78rem; border:1px solid var(--border); border-radius:var(--r); background:var(--cream);" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-eyebrow">Select a time</div>
+            <div class="time-grid" id="time-slots"></div>
+            <input type="hidden" name="scheduled_time" id="scheduled-time" value="10:00 AM" />
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; display:flex; justify-content:flex-end;">
+          <button type="button" class="btn-amber" style="padding:.8rem 2rem;" onclick="nextBookStep(2)">Continue → Job Details</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Job Details -->
+      <div class="booking-step-content" id="bstep-content2">
+        <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:2rem;">
+          <div>
+            <div class="form-field">
+              <label class="label">Describe the job</label>
+              <textarea name="description" rows="4" placeholder="Describe what needs to be fixed…"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="label">Estimated budget ($)</label>
+              <input type="text" name="total_price" placeholder="e.g. 150" />
+            </div>
+          </div>
+          <div>
+            <div class="section-eyebrow">Booking Summary</div>
+            <div class="booking-summary">
+              <div class="sum-row"><span class="sum-lbl">Provider</span><span class="sum-val">{{ provider.name }}</span></div>
+              <div class="sum-row"><span class="sum-lbl">Date</span><span class="sum-val" id="sum-date">—</span></div>
+              <div class="sum-row"><span class="sum-lbl">Time</span><span class="sum-val" id="sum-time">10:00 AM</span></div>
+              <div class="sum-row"><span class="sum-lbl">Rate</span><span class="sum-val">${{ "%.0f"|format(provider.rate or 0) }}/hr</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; display:flex; gap:.75rem; justify-content:flex-end;">
+          <button type="button" class="btn-outline" onclick="nextBookStep(1)">← Back</button>
+          <button type="submit" class="btn-amber" style="padding:.8rem 2rem;">Confirm Booking →</button>
+        </div>
+      </div>
+    </form>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
 <script>
-/* Booking step wizard */
 function nextBookStep(step){
   [1,2,3].forEach(function(i){
     var c=document.getElementById('bstep-content'+i);
@@ -185,44 +119,30 @@ function nextBookStep(step){
     if(c) c.classList.toggle('active', i===step);
     if(h) h.className='bstep '+(i<step?'done':i===step?'active':'inactive');
   });
+  // Update summary
+  var d=document.getElementById('scheduled-date');
+  var sd=document.getElementById('sum-date');
+  if(d && sd && d.value){ sd.textContent=d.value; }
+  var st=document.getElementById('scheduled-time');
+  var stt=document.getElementById('sum-time');
+  if(st && stt) stt.textContent=st.value;
 }
-/* Calendar */
-(function(){
-  var hdr=document.getElementById('cal-days-header'); if(!hdr) return;
-  ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(function(d){
-    var el=document.createElement('div');el.className='cal-day-name';el.textContent=d;hdr.appendChild(el);
-  });
-  var grid=document.getElementById('cal-days');
-  var first=new Date(2026,3,1).getDay(), total=new Date(2026,4,0).getDate();
-  for(var i=0;i<first;i++){var e=document.createElement('div');e.className='cal-day empty';grid.appendChild(e);}
-  for(var d=1;d<=total;d++){
-    var el=document.createElement('div'); el.className='cal-day'; el.textContent=d;
-    if(d===10) el.classList.add('today');
-    if(d<10)   el.classList.add('disabled');
-    else (function(day){ el.onclick=function(){
-      document.querySelectorAll('.cal-day').forEach(function(x){x.classList.remove('selected');});
-      this.classList.add('selected');
-      var s=document.getElementById('sum-date'); if(s) s.textContent='Apr '+day+', 2026';
-    }; })(d);
-    grid.appendChild(el);
-  }
-})();
-/* Time slots */
+
+// Time slots
 (function(){
   var box=document.getElementById('time-slots'); if(!box) return;
-  var times=['8:00 AM','9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM'];
-  var taken=[1,4,7];
-  times.forEach(function(t,i){
+  var times=['8:00 AM','9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM'];
+  times.forEach(function(t){
     var el=document.createElement('div');
-    el.className='time-slot'+(taken.includes(i)?' taken':''); el.textContent=t;
-    if(!taken.includes(i)) (function(time){ el.onclick=function(){
+    el.className='time-slot'; el.textContent=t;
+    el.onclick=function(){
       document.querySelectorAll('.time-slot').forEach(function(x){x.classList.remove('selected');});
       this.classList.add('selected');
-      var s=document.getElementById('sum-time'); if(s) s.textContent=time;
-    }; })(t);
+      document.getElementById('scheduled-time').value=t;
+      var s=document.getElementById('sum-time'); if(s) s.textContent=t;
+    };
     box.appendChild(el);
   });
 })();
 </script>
-</body>
-</html>
+{% endblock %}

@@ -1,18 +1,18 @@
 listing_id,provider_id,category_id,title,description,price,status
-1,1,1,Emergency Leak Repair,Fast response for all types of residential water leaks. Supply lines P-traps and pipe connections.,75.00,active
-2,1,1,Drain Cleaning & Unclogging,Professional drain clearing using snake and hydro-jet equipment for kitchen and bathroom drains.,85.00,active
-3,1,1,Water Heater Installation,Full replacement or new installation of tank and tankless water heaters.,150.00,active
-4,1,1,Pipe Replacement,Partial or full pipe replacement for aging galvanized or damaged copper lines.,75.00,active
-5,2,2,Outlet & Switch Repair,Fix dead outlets tripped breakers and faulty switches. Same-day service available.,90.00,active
-6,2,2,Panel Upgrade,Upgrade from 100A to 200A service panel. Fully permitted and inspected.,90.00,active
-7,2,2,Ceiling Fan Installation,Install or replace ceiling fans with or without existing wiring.,90.00,active
-8,3,8,Custom Shelving & Storage,Built-in shelving units closet organizers and wall-mounted storage solutions.,65.00,active
-9,3,8,Door Repair & Installation,Repair sticking doors replace hinges and install new interior or exterior doors.,65.00,active
-10,3,8,Deck Repair,Repair rotted boards replace railings and refinish existing decks.,65.00,active
-11,4,1,Under-Sink Repair,Specialized in P-trap supply line and shut-off valve repairs under kitchen and bathroom sinks.,68.00,active
-12,4,1,Fixture Replacement,Remove and install new faucets sinks toilets and shower fixtures.,68.00,active
-13,4,1,Kitchen Renovation Plumbing,Rough-in and finish plumbing for kitchen remodels.,68.00,active
-14,5,1,Full Plumbing Inspection,Comprehensive inspection of residential plumbing systems with written report.,90.00,active
-15,5,1,Sewer Line Repair,Camera inspection and repair of main sewer lines.,90.00,active
-16,6,3,HVAC Tune-Up,Seasonal maintenance for heating and cooling systems.,85.00,active
-17,6,1,Moisture & Leak Control,Identify and eliminate sources of moisture intrusion in kitchens and bathrooms.,85.00,active
+1,1,1,"Emergency Leak Repair","Fast response leak detection and repair for pipes faucets and drains.",75.0,active
+2,1,1,"Drain Cleaning Service","Professional drain clearing and maintenance for kitchens and bathrooms.",60.0,active
+3,2,2,"Electrical Outlet Repair","Fix broken outlets install new ones and upgrade old wiring.",90.0,active
+4,2,2,"Panel and Breaker Service","Breaker replacement panel upgrades and electrical inspections.",120.0,active
+5,3,9,"Custom Woodwork","Shelving cabinets trim work and custom furniture repairs.",65.0,active
+6,3,4,"General Handyman Services","Door repair mounting installations and minor home repairs.",55.0,active
+7,4,1,"Kitchen and Bath Plumbing","Fixture installation faucet repair and under-sink plumbing.",68.0,active
+8,5,1,"Pipe Replacement","Full pipe replacement leak detection and water damage prevention.",90.0,active
+9,6,1,"Plumbing and HVAC Combo","Combined plumbing and ventilation for complex moisture issues.",85.0,active
+10,6,3,"HVAC Maintenance","AC tune-up furnace check and air quality assessment.",85.0,active
+11,7,3,"AC Repair and Install","Air conditioning repair installation and seasonal maintenance.",80.0,active
+12,7,3,"Furnace Service","Furnace repair maintenance and replacement. Gas and electric.",80.0,active
+13,8,10,"Interior Painting","Professional interior painting for rooms walls and trim.",55.0,active
+14,8,10,"Exterior Painting","House exterior painting siding trim and fence staining.",65.0,active
+15,9,7,"Residential Pest Control","Ant roach termite and rodent control. Monthly plans available.",70.0,active
+16,10,6,"Roof Leak Repair","Emergency and scheduled roof leak repair. Shingle replacement.",95.0,active
+17,10,6,"Gutter Installation","New gutter installation cleaning and repair.",85.0,active

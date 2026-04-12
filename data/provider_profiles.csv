@@ -1,7 +1,11 @@
 provider_id,user_id,bio,rate,verified_status,average_rating
-1,2,Licensed master plumber with 15 years of residential and light commercial experience across the Dallas-Fort Worth area. Specializing in leak detection emergency repairs drain clearing and full kitchen/bathroom fixture installations.,75.00,1,4.90
-2,3,Certified electrician with 10 years experience. Specializing in residential wiring panel upgrades and emergency electrical repairs. Licensed and insured.,90.00,1,4.85
-3,4,Expert carpenter with 12 years experience in custom woodwork furniture repair deck building and trim installation. Attention to detail guaranteed.,65.00,1,4.70
-4,5,Plumbing and fixtures specialist with 8 years experience. Same-day service available for under-sink repairs fixture replacement and kitchen and bath renovations.,68.00,1,4.80
-5,6,Full-service plumbing contractor with 20+ years. Leak detection water damage prevention and pipe replacement specialists.,90.00,1,4.70
-6,7,Multi-trade specialist handling plumbing ventilation and moisture control. Ideal for complex kitchen and bathroom issues.,85.00,1,4.90
+1,2,"15 yrs specializing in residential leak detection pipe repair and emergency drain services. Licensed & insured.",75.0,1,4.9
+2,3,"Certified electrician with 12 years experience. Residential and commercial wiring outlet repair panel upgrades.",90.0,1,4.8
+3,4,"Skilled carpenter and handyman. Specializing in custom woodwork furniture repair and home improvement projects.",65.0,1,4.7
+4,5,"Plumbing and fixtures specialist. Under-sink repairs fixture replacement kitchen and bath renovations. Same-day available.",68.0,1,4.8
+5,6,"Full-service plumbing contractor with 20+ years. Leak detection water damage prevention pipe replacement.",90.0,1,4.7
+6,7,"Multi-trade specialist handling plumbing HVAC and moisture control. Ideal for complex home issues.",85.0,1,4.9
+7,11,"HVAC technician specializing in AC repair furnace maintenance and ventilation systems. EPA certified.",80.0,1,4.6
+8,12,"Professional painter with 8 years experience. Interior exterior residential and commercial painting.",55.0,1,4.5
+9,14,"Pest control expert. Licensed for residential and commercial pest management. Eco-friendly options available.",70.0,1,4.7
+10,15,"Roofing contractor with 15 years experience. Shingle repair leak repair gutter installation and maintenance.",95.0,1,4.8

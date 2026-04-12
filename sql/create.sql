@@ -7,6 +7,7 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     phone VARCHAR(20) DEFAULT NULL,
+    password_hash VARCHAR(256) NOT NULL DEFAULT '',
     role ENUM('client','provider','admin') NOT NULL DEFAULT 'client',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id)

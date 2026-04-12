@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixr — {% block title %}Find the Right Hand for Any Job{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="{{ url_for('main.home') }}">fix<span>r</span></a>
+    <div class="nav-links">
+      <a class="nav-link keep" href="{{ url_for('main.home') }}">Find a Pro</a>
+      {% if current_user %}
+      <a class="nav-link" href="{{ url_for('main.dashboard') }}">Dashboard</a>
+      <div class="nav-sep"></div>
+      <a class="nav-icon-btn" href="{{ url_for('main.messages') }}" title="Messages">✉{% if unread_count %}<span class="nav-badge">{{ unread_count }}</span>{% endif %}</a>
+      <a class="nav-icon-btn" href="{{ url_for('main.account') }}" title="Account">⚙</a>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <span style="font-size:.7rem; color:var(--ink-faint);">{{ current_user.name }}</span>
+        <a class="btn-nav-outline" href="{{ url_for('main.logout') }}">Log Out</a>
+      </div>
+      {% else %}
+      <div class="nav-sep"></div>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <a class="btn-nav-outline" href="{{ url_for('main.login') }}">Log In</a>
+        <a class="btn-nav-fill" href="{{ url_for('main.signup') }}">Sign Up</a>
+      </div>
+      {% endif %}
+    </div>
+  </nav>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <div style="position:fixed; top:60px; right:20px; z-index:9999; display:flex; flex-direction:column; gap:.5rem; max-width:400px;">
+    {% for category, message in messages %}
+    <div class="flash-msg flash-{{ category }}" onclick="this.remove()" style="
+      padding:.75rem 1.25rem; border-radius:var(--rl); font-size:.75rem; cursor:pointer;
+      font-family:'DM Mono',monospace; animation: pageIn .3s ease both;
+      {% if category == 'error' %}background:var(--red-bg); color:var(--red); border:1px solid rgba(153,60,29,.2);
+      {% elif category == 'success' %}background:var(--green-bg); color:var(--green); border:1px solid rgba(15,110,86,.2);
+      {% elif category == 'warning' %}background:var(--amber-pale); color:var(--copper); border:1px solid rgba(146,64,14,.2);
+      {% else %}background:var(--cream-dim); color:var(--ink-muted); border:1px solid var(--border);{% endif %}
+    ">{{ message }}</div>
+    {% endfor %}
+  </div>
+  <script>setTimeout(function(){document.querySelectorAll('.flash-msg').forEach(function(e){e.remove()})},5000);</script>
+  {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

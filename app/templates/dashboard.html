@@ -1,93 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fixr — Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
 
-  <nav>
-    <a class="logo" href="home.html">fix<span>r</span></a>
-    <div class="nav-links">
-      <a class="nav-link keep" href="home.html">Find a Pro</a>
-      <a class="nav-link"      href="dashboard.html">Dashboard</a>
-      <div class="nav-sep"></div>
-      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
-      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
-      <div style="display:flex;gap:.6rem;align-items:center;">
-        <a class="btn-nav-outline" href="login.html">Log In</a>
-        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
-      </div>
+{% block content %}
+<div class="dash-page">
+
+  <div class="dash-header">
+    <div>
+      <div class="dash-greet">Welcome back</div>
+      <div class="dash-h1">{{ user.name }}'s Dashboard</div>
     </div>
-  </nav>
+    <div style="font-size:.68rem; color:rgba(255,255,255,.3);">{{ user.role|capitalize }} Account</div>
+  </div>
 
-    <div class="dash-page">
+  {% set active_bookings = bookings|selectattr('status', 'in', ['pending','confirmed','in_progress'])|list %}
+  {% set completed_bookings = bookings|selectattr('status', 'equalto', 'completed')|list %}
 
-      <div class="dash-header">
-        <div>
-          <div class="dash-greet">Welcome back</div>
-          <div class="dash-h1">Jordan's Dashboard</div>
-        </div>
-        <div style="font-size:.68rem; color:rgba(255,255,255,.3);">Friday, April 10, 2026</div>
+  <div class="dash-stats-row">
+    <div class="dash-stat">
+      <div class="dash-stat-n">{{ active_bookings|length }}</div>
+      <div class="dash-stat-l">Active Jobs</div>
+    </div>
+    <div class="dash-stat">
+      <div class="dash-stat-n">{{ completed_bookings|length }}</div>
+      <div class="dash-stat-l">Completed</div>
+    </div>
+    <div class="dash-stat">
+      <div class="dash-stat-n">{{ bookings|length }}</div>
+      <div class="dash-stat-l">Total Bookings</div>
+    </div>
+    {% if user.role == 'provider' and provider %}
+    <div class="dash-stat">
+      <div class="dash-stat-n">{{ "%.1f"|format(provider.average_rating or 0) }}★</div>
+      <div class="dash-stat-l">Avg Rating</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="dash-body">
+
+    <!-- Bookings list -->
+    <div>
+      <div class="section-eyebrow">
+        {% if user.role == 'provider' %}Incoming Bookings{% else %}Your Jobs{% endif %}
       </div>
 
-      <div class="dash-stats-row">
-        <div class="dash-stat"><div class="dash-stat-n">3</div><div class="dash-stat-l">Active Jobs</div><div class="dash-stat-d" style="color:var(--green);">↑ 1 this week</div></div>
-        <div class="dash-stat"><div class="dash-stat-n">7</div><div class="dash-stat-l">Completed</div><div class="dash-stat-d" style="color:var(--green);">↑ 2 this month</div></div>
-        <div class="dash-stat"><div class="dash-stat-n">$1,240</div><div class="dash-stat-l">Total Spent</div><div class="dash-stat-d" style="color:var(--red);">↓ vs $1,680 last mo.</div></div>
-        <div class="dash-stat"><div class="dash-stat-n">4.8★</div><div class="dash-stat-l">Avg Provider Rating</div><div class="dash-stat-d" style="color:var(--green);">↑ across 7 bookings</div></div>
-      </div>
-
-      <div class="dash-body">
-
-        <!-- Job list -->
-        <div>
-          <div class="section-eyebrow">Active & Recent Jobs</div>
-          <div class="job-list">
-            <div class="job-row">
-              <div class="job-icon">🔧</div>
-              <div class="job-info"><div class="job-title-t">Kitchen sink leak repair</div><div class="job-sub">Marcus Rivera · Sat Apr 12 · 10:00 AM</div></div>
-              <span class="status-badge s-active">Confirmed</span>
-              <button class="btn-book" onclick="window.location.href='messages.html'" style="font-size:.62rem; padding:.35rem .7rem;">Message</button>
-            </div>
-            <div class="job-row">
-              <div class="job-icon">⚡</div>
-              <div class="job-info"><div class="job-title-t">Outlet not working — living room</div><div class="job-sub">Sandra Chen · Awaiting response</div></div>
-              <span class="status-badge s-pending">Pending</span>
-              <button class="btn-book" onclick="window.location.href='messages.html'" style="font-size:.62rem; padding:.35rem .7rem;">Message</button>
-            </div>
-            <div class="job-row">
-              <div class="job-icon">🪟</div>
-              <div class="job-info"><div class="job-title-t">Window frame weatherstripping</div><div class="job-sub">James Thornton · Completed Apr 3, 2026</div></div>
-              <span class="status-badge s-done">Done</span>
-              <button class="btn-book" onclick="window.location.href='provider-profile.html'" style="font-size:.62rem; padding:.35rem .7rem; background:transparent; color:var(--amber); border:1px solid rgba(217,119,6,.3);">Review</button>
-            </div>
-            <div class="job-row">
-              <div class="job-icon">🚿</div>
-              <div class="job-info"><div class="job-title-t">Shower drain unclogging</div><div class="job-sub">Diane Kim · Completed Mar 22, 2026</div></div>
-              <span class="status-badge s-done">Done</span>
-              <button class="btn-book" onclick="window.location.href='provider-profile.html'" style="font-size:.62rem; padding:.35rem .7rem; background:transparent; color:var(--amber); border:1px solid rgba(217,119,6,.3);">Review</button>
+      {% if bookings %}
+      <div class="job-list">
+        {% for b in bookings %}
+        <div class="job-row">
+          <div class="job-icon">
+            {% if b.status == 'completed' %}✅{% elif b.status == 'cancelled' %}❌{% elif b.status == 'confirmed' %}📋{% else %}⏳{% endif %}
+          </div>
+          <div class="job-info">
+            <div class="job-title-t">{{ b.job_desc[:60] }}{{ '…' if b.job_desc|length > 60 }}</div>
+            <div class="job-sub">
+              {% if user.role == 'provider' %}
+                Client: {{ b.client_name }}
+              {% else %}
+                Provider: {{ b.provider_name }}
+              {% endif %}
+              {% if b.scheduled_date %}
+                · {{ b.scheduled_date.strftime('%b %d, %Y') if b.scheduled_date else '' }}
+              {% endif %}
             </div>
           </div>
-          <button class="btn-amber" style="margin-top:1.5rem; font-size:.72rem; padding:.7rem 1.5rem;" onclick="window.location.href='home.html'">+ New Job Request</button>
+          <span class="status-badge {% if b.status == 'completed' %}s-done{% elif b.status == 'confirmed' %}s-active{% elif b.status == 'cancelled' %}s-done{% else %}s-pending{% endif %}">
+            {{ b.status|capitalize }}
+          </span>
+
+          {% if user.role == 'provider' and b.status in ['pending', 'confirmed', 'in_progress'] %}
+          <div style="display:flex; gap:.3rem;">
+            {% if b.status == 'pending' %}
+            <form method="POST" action="{{ url_for('main.update_booking', booking_id=b.booking_id) }}" style="display:inline;">
+              <input type="hidden" name="status" value="confirmed" />
+              <button type="submit" class="btn-book" style="font-size:.6rem; padding:.3rem .6rem;">Accept</button>
+            </form>
+            <form method="POST" action="{{ url_for('main.update_booking', booking_id=b.booking_id) }}" style="display:inline;">
+              <input type="hidden" name="status" value="cancelled" />
+              <button type="submit" class="btn-book" style="font-size:.6rem; padding:.3rem .6rem; background:transparent; color:var(--red); border:1px solid rgba(153,60,29,.3);">Decline</button>
+            </form>
+            {% elif b.status == 'confirmed' %}
+            <form method="POST" action="{{ url_for('main.update_booking', booking_id=b.booking_id) }}" style="display:inline;">
+              <input type="hidden" name="status" value="completed" />
+              <button type="submit" class="btn-book" style="font-size:.6rem; padding:.3rem .6rem;">Mark Done</button>
+            </form>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          {% if user.role == 'client' and b.status in ['completed'] %}
+          <a class="btn-book" href="{{ url_for('main.provider_profile', provider_id=b.provider_id) }}" style="font-size:.6rem; padding:.3rem .6rem; background:transparent; color:var(--amber); border:1px solid rgba(217,119,6,.3); text-decoration:none;">Review</a>
+          {% endif %}
         </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div style="font-size:.75rem; color:var(--ink-faint); padding:1.5rem 0;">No bookings yet.</div>
+      {% endif %}
 
-        <!-- Activity feed -->
-        <div>
-          <div class="section-eyebrow">Recent Activity</div>
-          <div class="activity-list">
-            <div class="act-item"><div class="act-dot" style="background:var(--amber);"></div><div><strong>Booking confirmed</strong> with Marcus Rivera for April 12. Expect a call before arrival.</div></div>
-            <div class="act-item"><div class="act-dot" style="background:var(--green);"></div><div><strong>Review submitted</strong> for James Thornton — 5 stars.</div></div>
-            <div class="act-item"><div class="act-dot" style="background:#4338CA;"></div><div><strong>New message</strong> from Sandra Chen: "I can come by Thursday afternoon."</div></div>
-            <div class="act-item"><div class="act-dot" style="background:var(--red);"></div><div><strong>Job matched</strong> — "outlet not working" → Electrical category.</div></div>
-            <div class="act-item"><div class="act-dot" style="background:var(--ink-faint);"></div><div><strong>Account verified</strong> via email. You can now post requests.</div></div>
+      {% if user.role == 'client' %}
+      <a class="btn-amber" style="margin-top:1.5rem; font-size:.72rem; padding:.7rem 1.5rem; text-decoration:none; display:inline-block;" href="{{ url_for('main.home') }}">+ New Job Request</a>
+      {% endif %}
+    </div>
+
+    <!-- Side panel -->
+    <div>
+      {% if user.role == 'provider' and listings is defined %}
+      <div class="section-eyebrow">Your Listings</div>
+      <div class="activity-list">
+        {% for lst in listings %}
+        <div class="act-item">
+          <div class="act-dot" style="background:{% if lst.status == 'active' %}var(--green){% else %}var(--ink-faint){% endif %};"></div>
+          <div>
+            <strong>{{ lst.title }}</strong><br>
+            <span style="font-size:.65rem; color:var(--ink-faint);">{{ lst.category_name }} · ${{ "%.0f"|format(lst.price or 0) }} · {{ lst.status }}</span>
           </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a class="btn-amber" style="margin-top:1rem; font-size:.7rem; padding:.6rem 1.2rem; text-decoration:none; display:inline-block;" href="{{ url_for('main.new_listing') }}">+ New Listing</a>
 
+      {% elif user.role == 'client' and job_requests is defined %}
+      <div class="section-eyebrow">Recent Job Requests</div>
+      <div class="activity-list">
+        {% for jr in job_requests[:10] %}
+        <div class="act-item">
+          <div class="act-dot" style="background:{% if jr.status == 'open' %}var(--amber){% elif jr.status == 'matched' %}var(--green){% else %}var(--ink-faint){% endif %};"></div>
+          <div>
+            <strong>{{ jr.description[:50] }}{{ '…' if jr.description|length > 50 }}</strong><br>
+            <span style="font-size:.65rem; color:var(--ink-faint);">
+              {{ jr.category_name or 'Unmatched' }} · {{ jr.status|capitalize }}
+              · {{ jr.created_at.strftime('%b %d') if jr.created_at else '' }}
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
 
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}

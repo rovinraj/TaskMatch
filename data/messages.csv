@@ -1,13 +1,8 @@
 message_id,sender_id,receiver_id,content,created_at
-1,2,1,Hi Jordan! I saw your request about the kitchen sink leak. I have handled dozens of similar cases — usually it is a supply line or P-trap. Happy to come take a look.,2026-04-10 10:14:00
-2,1,2,Thanks Marcus! Yes it started 2 days ago — water pooling under the cabinet. Not sure if it is from the drain or the supply lines.,2026-04-10 10:18:00
-3,2,1,Sounds like the P-trap or a compression fitting — very common. Either way it is usually a quick fix. Do you have a shutoff valve under the sink? If so close it to stop the dripping for now.,2026-04-10 10:21:00
-4,1,2,Yes there is a shutoff I will close it now. When can you come out?,2026-04-10 10:23:00
-5,2,1,I can come by Saturday at 10am — that is my earliest opening. I will bring parts for both common scenarios so we do not have to make a parts run mid-job.,2026-04-10 10:26:00
-6,1,2,Saturday at 10am works perfectly. Going to go ahead and book through the app now.,2026-04-10 10:28:00
-7,3,1,I can come by Thursday afternoon to check the outlet. Does 3pm work for you?,2026-04-09 15:00:00
-8,4,1,Job complete! Let me know if anything needs touch-up.,2026-04-03 16:30:00
-9,5,1,Thanks for the 5-star review! It was a pleasure working with you.,2026-03-23 13:00:00
-10,9,6,I have ants everywhere in the kitchen especially near the window. Can you help this week?,2026-04-10 17:00:00
-11,6,9,Absolutely. I can come out Wednesday morning. I will bring a targeted treatment that is safe for kitchens.,2026-04-10 17:30:00
-12,11,1,I noticed a water stain on your ceiling from the upstairs bathroom. I can inspect and find the source. What days work for you?,2026-04-09 09:00:00
+1,2,1,"Hi Jordan! I saw your request about the kitchen sink leak. Happy to come take a look.",2026-04-08 10:14:00
+2,1,2,"Thanks Marcus! Yes it started 2 days ago. Water pooling under the cabinet.",2026-04-08 10:18:00
+3,2,1,"Sounds like the P-trap or a compression fitting. Very common and usually a quick fix.",2026-04-08 10:21:00
+4,1,2,"Great when can you come out?",2026-04-08 10:23:00
+5,2,1,"I can come by Saturday at 10am. Ill bring parts for both common scenarios.",2026-04-08 10:26:00
+6,3,1,"Hi! I can check your outlet issue. Does Thursday afternoon work?",2026-04-09 15:00:00
+7,1,3,"Thursday afternoon works perfectly. See you then!",2026-04-09 15:30:00

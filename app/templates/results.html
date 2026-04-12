@@ -1,228 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fixr — Matched Providers</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Matched Providers{% endblock %}
 
-  <nav>
-    <a class="logo" href="home.html">fix<span>r</span></a>
-    <div class="nav-links">
-      <a class="nav-link keep" href="home.html">Find a Pro</a>
-      <a class="nav-link"      href="dashboard.html">Dashboard</a>
-      <div class="nav-sep"></div>
-      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
-      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
-      <div style="display:flex;gap:.6rem;align-items:center;">
-        <a class="btn-nav-outline" href="login.html">Log In</a>
-        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
-      </div>
-    </div>
-  </nav>
+{% block content %}
+<div class="results-page">
 
-    <div class="results-page">
-
-      <div class="results-header">
-        <button class="results-back" onclick="window.location.href='home.html'">← Back</button>
-        <div class="results-title">Matched Providers</div>
-        <div class="results-query">"Water dripping under my kitchen sink and the cabinet floor is damp…"</div>
-        <span class="cat-pill"><span class="cat-dot"></span> Plumbing · 8 providers found</span>
-      </div>
-
-      <div class="results-body">
-
-        <!-- Filter Sidebar -->
-        <aside class="filters">
-
-          <div class="filter-section">
-            <div class="section-eyebrow">Availability</div>
-            <label class="filter-opt"><span class="fcheck on">✓</span> Available Today</label>
-            <label class="filter-opt"><span class="fcheck on">✓</span> Within 24 Hours</label>
-            <label class="filter-opt"><span class="fcheck"></span> This Week</label>
-          </div>
-
-          <div class="filter-section">
-            <div class="section-eyebrow">Status</div>
-            <label class="filter-opt"><span class="fcheck on">✓</span> Verified Only</label>
-            <label class="filter-opt"><span class="fcheck"></span> All Providers</label>
-          </div>
-
-          <div class="filter-section">
-            <div class="section-eyebrow">Min Rating</div>
-            <input type="range" min="1" max="5" value="4" step=".5" />
-            <div class="range-vals"><span>4.0+</span><span>5.0</span></div>
-          </div>
-
-          <div class="filter-section">
-            <div class="section-eyebrow">Max Rate ($/hr)</div>
-            <input type="range" min="30" max="200" value="120" step="10" />
-            <div class="range-vals"><span>$30</span><span>$120</span></div>
-          </div>
-
-          <div class="filter-section">
-            <div class="section-eyebrow">Distance</div>
-            <label class="filter-opt"><span class="fcheck on">✓</span> Within 5 miles</label>
-            <label class="filter-opt"><span class="fcheck"></span> Within 15 miles</label>
-            <label class="filter-opt"><span class="fcheck"></span> Any distance</label>
-          </div>
-
-        </aside>
-
-        <!-- Provider Cards -->
-        <div class="results-list">
-          <div class="results-sort-row">
-            <div class="results-count">8 professionals · sorted by relevance</div>
-            <select>
-              <option>Best Match</option>
-              <option>Rating</option>
-              <option>Price: Low</option>
-              <option>Distance</option>
-            </select>
-          </div>
-
-          <div class="provider-grid">
-
-            <!-- Card: Marcus Rivera -->
-            <div class="p-card" onclick="window.location.href='provider-profile.html'">
-              <img class="p-card-photo" src="https://picsum.photos/seed/plumbing1/500/280" alt="Plumbing work"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="p-card-photo-placeholder" style="display:none;">🔧</div>
-              <div class="p-card-top">
-                <div class="avatar av-md av-amber">MR</div>
-                <div style="flex:1;">
-                  <div style="font-size:.88rem; font-weight:500; color:var(--ink);">Marcus Rivera</div>
-                  <div style="font-size:.65rem; color:var(--amber); text-transform:uppercase; letter-spacing:.07em;">Master Plumber</div>
-                </div>
-                <span class="verified-pill">✓ Verified</span>
-              </div>
-              <div class="p-card-body">
-                <p class="p-card-bio">15 yrs specializing in residential leak detection, pipe repair, and emergency drain services. Licensed & insured.</p>
-                <div class="p-card-tags">
-                  <span class="cat-tag amber">Leak Repair</span>
-                  <span class="cat-tag">Drain</span>
-                  <span class="cat-tag">Emergency</span>
-                  <span class="cat-tag">2.3 mi</span>
-                </div>
-              </div>
-              <div class="p-card-footer">
-                <div>
-                  <div class="p-rate">$75<span>/hr</span></div>
-                  <div class="rating-row"><span class="stars-lit">★★★★★</span><span class="rating-num">4.9 (142)</span></div>
-                </div>
-                <button class="btn-book" onclick="window.location.href='booking.html'">Book →</button>
-              </div>
-            </div>
-
-            <!-- Card: Diane Kim -->
-            <div class="p-card" onclick="window.location.href='provider-profile.html'">
-              <img class="p-card-photo" src="https://picsum.photos/seed/kitchen2/500/280" alt="Kitchen repair"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="p-card-photo-placeholder" style="display:none;">🚿</div>
-              <div class="p-card-top">
-                <div class="avatar av-md av-teal">DK</div>
-                <div style="flex:1;">
-                  <div style="font-size:.88rem; font-weight:500; color:var(--ink);">Diane Kim</div>
-                  <div style="font-size:.65rem; color:var(--amber); text-transform:uppercase; letter-spacing:.07em;">Plumbing & Fixtures</div>
-                </div>
-                <span class="verified-pill">✓ Verified</span>
-              </div>
-              <div class="p-card-body">
-                <p class="p-card-bio">Specializing in under-sink repairs, fixture replacement, and kitchen & bath renovations. Same-day available.</p>
-                <div class="p-card-tags">
-                  <span class="cat-tag amber">Kitchen</span>
-                  <span class="cat-tag">Fixtures</span>
-                  <span class="cat-tag">Renovation</span>
-                  <span class="cat-tag">4.1 mi</span>
-                </div>
-              </div>
-              <div class="p-card-footer">
-                <div>
-                  <div class="p-rate">$68<span>/hr</span></div>
-                  <div class="rating-row"><span class="stars-lit">★★★★★</span><span class="rating-num">4.8 (98)</span></div>
-                </div>
-                <button class="btn-book" onclick="window.location.href='booking.html'">Book →</button>
-              </div>
-            </div>
-
-            <!-- Card: Tony Bellucci -->
-            <div class="p-card" onclick="window.location.href='provider-profile.html'">
-              <img class="p-card-photo" src="https://picsum.photos/seed/pipes3/500/280" alt="Pipe work"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="p-card-photo-placeholder" style="display:none;">🛠</div>
-              <div class="p-card-top">
-                <div class="avatar av-md av-copper">TB</div>
-                <div style="flex:1;">
-                  <div style="font-size:.88rem; font-weight:500; color:var(--ink);">Tony Bellucci</div>
-                  <div style="font-size:.65rem; color:var(--amber); text-transform:uppercase; letter-spacing:.07em;">Plumbing Contractor</div>
-                </div>
-                <span class="verified-pill">✓ Verified</span>
-              </div>
-              <div class="p-card-body">
-                <p class="p-card-bio">Full-service plumbing with 20+ yrs. Leak detection, water damage prevention, pipe replacement specialists.</p>
-                <div class="p-card-tags">
-                  <span class="cat-tag amber">Pipe Repair</span>
-                  <span class="cat-tag">Detection</span>
-                  <span class="cat-tag">1.8 mi</span>
-                </div>
-              </div>
-              <div class="p-card-footer">
-                <div>
-                  <div class="p-rate">$90<span>/hr</span></div>
-                  <div class="rating-row"><span class="stars-lit">★★★★</span><span class="rating-num">4.7 (211)</span></div>
-                </div>
-                <button class="btn-book" onclick="window.location.href='booking.html'">Book →</button>
-              </div>
-            </div>
-
-            <!-- Card: Amara Lewis -->
-            <div class="p-card" onclick="window.location.href='provider-profile.html'">
-              <img class="p-card-photo" src="https://picsum.photos/seed/hvac4/500/280" alt="HVAC work"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="p-card-photo-placeholder" style="display:none;">⚙️</div>
-              <div class="p-card-top">
-                <div class="avatar av-md av-indigo">AL</div>
-                <div style="flex:1;">
-                  <div style="font-size:.88rem; font-weight:500; color:var(--ink);">Amara Lewis</div>
-                  <div style="font-size:.65rem; color:var(--amber); text-transform:uppercase; letter-spacing:.07em;">Plumbing & HVAC</div>
-                </div>
-                <span class="verified-pill">✓ Verified</span>
-              </div>
-              <div class="p-card-body">
-                <p class="p-card-bio">Multi-trade specialist handling plumbing, ventilation & moisture control — ideal for complex kitchen issues.</p>
-                <div class="p-card-tags">
-                  <span class="cat-tag amber">Multi-trade</span>
-                  <span class="cat-tag">HVAC</span>
-                  <span class="cat-tag">Moisture</span>
-                  <span class="cat-tag">6.2 mi</span>
-                </div>
-              </div>
-              <div class="p-card-footer">
-                <div>
-                  <div class="p-rate">$85<span>/hr</span></div>
-                  <div class="rating-row"><span class="stars-lit">★★★★★</span><span class="rating-num">4.9 (67)</span></div>
-                </div>
-                <button class="btn-book" onclick="window.location.href='booking.html'">Book →</button>
-              </div>
-            </div>
-
-          </div><!-- /.provider-grid -->
-        </div><!-- /.results-list -->
-
-      </div><!-- /.results-body -->
-    </div>
+  <div class="results-header">
+    <a class="results-back" href="{{ url_for('main.home') }}">← Back</a>
+    <div class="results-title">Matched Providers</div>
+    <div class="results-query">"{{ description }}"</div>
+    {% if matched_category %}
+    <span class="cat-pill"><span class="cat-dot"></span> {{ matched_category.category_name }} · {{ providers|length }} provider{{ 's' if providers|length != 1 }} found</span>
+    {% else %}
+    <span class="cat-pill"><span class="cat-dot"></span> No category matched</span>
+    {% endif %}
   </div>
 
+  <div class="results-body">
 
-  <!-- ══════════════════════════════════════
-       PAGE: PROVIDER PROFILE
-  ══════════════════════════════════════ -->
+    <!-- Filter Sidebar -->
+    <aside class="filters">
+      <div class="filter-section">
+        <div class="section-eyebrow">Category Matched</div>
+        <div style="font-size:.78rem; color:var(--amber); font-weight:500;">
+          {{ matched_category.category_name if matched_category else 'Unknown' }}
+        </div>
+      </div>
 
+      <div class="filter-section">
+        <div class="section-eyebrow">Search Details</div>
+        {% if zip_code %}
+        <div style="font-size:.72rem; color:var(--ink-muted); margin-bottom:.3rem;">📍 {{ zip_code }}</div>
+        {% endif %}
+        {% if budget %}
+        <div style="font-size:.72rem; color:var(--ink-muted);">💰 Budget: {{ budget }}</div>
+        {% endif %}
+      </div>
 
-</body>
-</html>
+      <div class="filter-section">
+        <div class="section-eyebrow">Refine Results</div>
+        <div style="font-size:.68rem; color:var(--ink-faint); line-height:1.6;">
+          Try adjusting your description or removing the zip code filter for more results.
+        </div>
+      </div>
+    </aside>
+
+    <!-- Provider Cards -->
+    <div class="results-list">
+      <div class="results-sort-row">
+        <div class="results-count">{{ providers|length }} professional{{ 's' if providers|length != 1 }} · sorted by rating</div>
+      </div>
+
+      {% if providers %}
+      <div class="provider-grid">
+        {% for p in providers %}
+        <div class="p-card" onclick="window.location.href='{{ url_for('main.provider_profile', provider_id=p.provider_id) }}'">
+          <div class="p-card-photo-placeholder" style="display:flex;">{{ p.initials }}</div>
+          <div class="p-card-top">
+            <div class="avatar av-md av-amber">{{ p.initials }}</div>
+            <div style="flex:1;">
+              <div style="font-size:.88rem; font-weight:500; color:var(--ink);">{{ p.name }}</div>
+              <div style="font-size:.65rem; color:var(--amber); text-transform:uppercase; letter-spacing:.07em;">
+                {{ matched_category.category_name if matched_category else '' }}
+              </div>
+            </div>
+            {% if p.verified_status %}
+            <span class="verified-pill">✓ Verified</span>
+            {% endif %}
+          </div>
+          <div class="p-card-body">
+            <p class="p-card-bio">{{ p.bio or 'No bio provided.' }}</p>
+            <div class="p-card-tags">
+              <span class="cat-tag amber">{{ matched_category.category_name if matched_category else '' }}</span>
+              {% if p.city %}
+              <span class="cat-tag">{{ p.city }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="p-card-footer">
+            <div>
+              <div class="p-rate">${{ "%.0f"|format(p.rate) if p.rate else '—' }}<span>/hr</span></div>
+              <div class="rating-row">
+                <span class="stars-lit">
+                  {% set rating = p.average_rating|default(0)|float %}
+                  {% for i in range(5) %}{{ '★' if i < rating|round(0, 'floor') else '☆' }}{% endfor %}
+                </span>
+                <span class="rating-num">{{ "%.1f"|format(rating) }} ({{ p.review_count }})</span>
+              </div>
+            </div>
+            <a class="btn-book" href="{{ url_for('main.book', provider_id=p.provider_id, request_id=job_request_id or '') }}" onclick="event.stopPropagation();">Book →</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div style="text-align:center; padding:3rem 1rem;">
+        <div style="font-size:2rem; margin-bottom:1rem;">🔍</div>
+        <div style="font-size:.9rem; font-weight:500; color:var(--ink); margin-bottom:.5rem;">No providers found</div>
+        <p style="font-size:.75rem; color:var(--ink-muted); max-width:400px; margin:0 auto;">
+          We couldn't find any providers matching your search. Try broadening your description or removing filters.
+        </p>
+        <a class="btn-amber" href="{{ url_for('main.home') }}" style="margin-top:1.5rem; display:inline-block;">← Try Again</a>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}

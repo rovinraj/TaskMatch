@@ -8,7 +8,7 @@ FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(user_id, name, email, phone, role, created_at);
+(user_id, name, email, phone, password_hash, role, created_at);
 
 LOAD DATA LOCAL INFILE 'data/locations.csv'
 INTO TABLE locations

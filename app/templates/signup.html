@@ -1,156 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fixr — Sign Up</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
 
-  <nav>
-    <a class="logo" href="home.html">fix<span>r</span></a>
-    <div class="nav-links">
-      <a class="nav-link keep" href="home.html">Find a Pro</a>
-      <a class="nav-link"      href="dashboard.html">Dashboard</a>
-      <div class="nav-sep"></div>
-      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
-      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
-      <div style="display:flex;gap:.6rem;align-items:center;">
-        <a class="btn-nav-outline" href="login.html">Log In</a>
-        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
-      </div>
+{% block content %}
+<div class="auth-page">
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <div class="logo" style="margin-bottom:2.5rem; font-size:1.75rem;">fix<span>r</span></div>
+      <div class="auth-tagline">Join <em>thousands</em> of pros and clients.</div>
+      <p class="auth-desc">Whether you need help or offer it — Fixr connects skilled tradespeople with clients who need them most.</p>
+      <div class="auth-feature"><span class="auth-feature-dot"></span> Free to create an account</div>
+      <div class="auth-feature"><span class="auth-feature-dot"></span> Providers set their own rates</div>
+      <div class="auth-feature"><span class="auth-feature-dot"></span> Secure payments after job done</div>
+      <div class="auth-feature"><span class="auth-feature-dot"></span> Grow your reputation with reviews</div>
     </div>
-  </nav>
+  </div>
 
-    <div class="auth-page">
+  <div class="auth-right">
+    <div class="auth-form-box">
 
-      <div class="auth-left">
-        <div class="auth-left-content">
-          <div class="logo" style="margin-bottom:2.5rem; font-size:1.75rem;">fix<span>r</span></div>
-          <div class="auth-tagline">Join <em>thousands</em> of pros and clients.</div>
-          <p class="auth-desc">Whether you need help or offer it — Fixr connects skilled tradespeople with clients who need them most.</p>
-          <div class="auth-feature"><span class="auth-feature-dot"></span> Free to create an account</div>
-          <div class="auth-feature"><span class="auth-feature-dot"></span> Providers set their own rates</div>
-          <div class="auth-feature"><span class="auth-feature-dot"></span> Secure payments after job done</div>
-          <div class="auth-feature"><span class="auth-feature-dot"></span> Grow your reputation with reviews</div>
+      <!-- Step 1: Role Selection -->
+      <div class="signup-step active" id="signup-s1">
+        <div class="auth-form-title">Create an account</div>
+        <p class="auth-form-sub">Already have one? <a href="{{ url_for('main.login') }}">Log in</a></p>
+        <div style="font-size:.72rem; color:var(--ink-muted); margin-bottom:.85rem; font-family:'Libre Baskerville',serif;">I am joining as a…</div>
+        <div class="role-cards">
+          <div class="role-card selected" id="role-client" onclick="selectRole('client')">
+            <div class="role-icon">🏠</div>
+            <div class="role-title">Client</div>
+            <div class="role-desc">I need to find and hire skilled tradespeople for jobs around my home or business.</div>
+          </div>
+          <div class="role-card" id="role-provider" onclick="selectRole('provider')">
+            <div class="role-icon">🔨</div>
+            <div class="role-title">Service Provider</div>
+            <div class="role-desc">I offer skilled trade services and want to find clients and grow my business.</div>
+          </div>
         </div>
+        <button class="btn-amber" style="width:100%;" onclick="nextSignupStep(2)">Continue →</button>
       </div>
 
-      <div class="auth-right">
-        <div class="auth-form-box">
-
-          <!-- Step 1: Role Selection -->
-          <div class="signup-step active" id="signup-s1">
-            <div class="auth-form-title">Create an account</div>
-            <p class="auth-form-sub">Already have one? <a onclick="window.location.href='login.html'">Log in</a></p>
-            <div style="font-size:.72rem; color:var(--ink-muted); margin-bottom:.85rem; font-family:'Libre Baskerville',serif;">I am joining as a…</div>
-            <div class="role-cards">
-              <div class="role-card" id="role-client" onclick="selectRole('client')">
-                <div class="role-icon">🏠</div>
-                <div class="role-title">Client</div>
-                <div class="role-desc">I need to find and hire skilled tradespeople for jobs around my home or business.</div>
-              </div>
-              <div class="role-card" id="role-provider" onclick="selectRole('provider')">
-                <div class="role-icon">🔨</div>
-                <div class="role-title">Service Provider</div>
-                <div class="role-desc">I offer skilled trade services and want to find clients and grow my business.</div>
-              </div>
-            </div>
-            <button class="btn-amber" style="width:100%;" onclick="nextSignupStep(2)">Continue →</button>
+      <!-- Step 2a: Client Form -->
+      <div class="signup-step" id="signup-s2-client">
+        <div class="auth-form-title" style="font-size:1.4rem;">Create your account</div>
+        <p class="auth-form-sub" style="margin-bottom:1.25rem;">Client · <a onclick="goSignupStep1()" style="cursor:pointer;">Change role</a></p>
+        <form method="POST" action="{{ url_for('main.signup') }}">
+          <input type="hidden" name="role" value="client" />
+          <div class="form-row cols-2">
+            <div class="form-field"><label class="label">First name</label><input type="text" name="first_name" placeholder="Jordan" required /></div>
+            <div class="form-field"><label class="label">Last name</label><input type="text" name="last_name" placeholder="Smith" required /></div>
           </div>
-
-          <!-- Step 2a: Client Form -->
-          <div class="signup-step" id="signup-s2-client">
-            <div class="auth-form-title" style="font-size:1.4rem;">Create your account</div>
-            <p class="auth-form-sub" style="margin-bottom:1.25rem;">Client · <a onclick="goSignupStep1()">Change role</a></p>
-            <div class="form-row cols-2">
-              <div class="form-field"><label class="label">First name</label><input type="text" placeholder="Jordan" /></div>
-              <div class="form-field"><label class="label">Last name</label><input type="text" placeholder="Smith" /></div>
-            </div>
-            <div class="form-field"><label class="label">Email address</label><input type="email" placeholder="you@email.com" /></div>
-            <div class="form-field"><label class="label">Phone number</label><input type="tel" placeholder="+1 (555) 000-0000" /></div>
-            <div class="form-row cols-2">
-              <div class="form-field"><label class="label">City</label><input type="text" placeholder="Richardson" /></div>
-              <div class="form-field"><label class="label">Zip code</label><input type="text" placeholder="75080" /></div>
-            </div>
-            <div class="form-field"><label class="label">Password</label><input type="password" placeholder="Min. 8 characters" /></div>
-            <div class="form-field"><label class="label">Confirm password</label><input type="password" placeholder="Repeat password" /></div>
-            <div style="font-size:.68rem; color:var(--ink-faint); margin-bottom:1rem; line-height:1.6;">
-              By creating an account you agree to our
-              <a style="color:var(--amber); cursor:pointer;">Terms of Service</a> and
-              <a style="color:var(--amber); cursor:pointer;">Privacy Policy</a>.
-            </div>
-            <button class="btn-amber" style="width:100%;" onclick="doLogin()">Create Account →</button>
+          <div class="form-field"><label class="label">Email address</label><input type="email" name="email" placeholder="you@email.com" required /></div>
+          <div class="form-field"><label class="label">Phone number</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000" /></div>
+          <div class="form-row cols-2">
+            <div class="form-field"><label class="label">City</label><input type="text" name="city" placeholder="Richardson" /></div>
+            <div class="form-field"><label class="label">Zip code</label><input type="text" name="zip_code" placeholder="75080" /></div>
           </div>
-
-          <!-- Step 2b: Provider Form -->
-          <div class="signup-step" id="signup-s2-provider">
-            <div class="auth-form-title" style="font-size:1.35rem;">Create your account</div>
-            <p class="auth-form-sub" style="margin-bottom:1.1rem;">Service Provider · <a onclick="goSignupStep1()">Change role</a></p>
-            <div class="form-row cols-2">
-              <div class="form-field"><label class="label">First name</label><input type="text" placeholder="Marcus" /></div>
-              <div class="form-field"><label class="label">Last name</label><input type="text" placeholder="Rivera" /></div>
-            </div>
-            <div class="form-field"><label class="label">Email address</label><input type="email" placeholder="you@email.com" /></div>
-            <div class="form-row cols-2">
-              <div class="form-field"><label class="label">Phone</label><input type="tel" placeholder="+1 (555) 000-0000" /></div>
-              <div class="form-field"><label class="label">Zip code</label><input type="text" placeholder="75080" /></div>
-            </div>
-            <div class="form-field">
-              <label class="label">Primary trade / service</label>
-              <select>
-                <option value="">Select a category…</option>
-                <option>Plumbing</option>
-                <option>Electrical</option>
-                <option>Carpentry</option>
-                <option>HVAC</option>
-                <option>Painting</option>
-                <option>Roofing</option>
-                <option>Landscaping</option>
-                <option>General Handyman</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-row cols-2">
-              <div class="form-field"><label class="label">Years experience</label><input type="number" placeholder="e.g. 10" min="0" max="60" /></div>
-              <div class="form-field"><label class="label">Hourly rate ($)</label><input type="number" placeholder="e.g. 75" min="15" /></div>
-            </div>
-            <div class="form-field">
-              <label class="label">Short bio</label>
-              <textarea rows="2" placeholder="Describe your services, experience, and what makes you stand out…" style="min-height:60px;"></textarea>
-            </div>
-            <div class="form-field">
-              <label class="label">Profile photo</label>
-              <div class="upload-zone" style="padding:1rem; display:flex; align-items:center; gap:.85rem; text-align:left;">
-                <div style="font-size:1.5rem;">📷</div>
-                <div>
-                  <div class="upload-text">Upload a professional photo</div>
-                  <div class="upload-sub">JPG or PNG, min 200×200px</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-field"><label class="label">Password</label><input type="password" placeholder="Min. 8 characters" /></div>
-            <div style="font-size:.67rem; color:var(--ink-faint); margin-bottom:.85rem; line-height:1.6;">
-              Your profile will be reviewed by our team before going live. Usually within 24 hrs.
-            </div>
-            <button class="btn-amber" style="width:100%;" onclick="doLogin()">Submit for Review →</button>
+          <div class="form-field"><label class="label">Password</label><input type="password" name="password" placeholder="Min. 8 characters" required minlength="8" /></div>
+          <div class="form-field"><label class="label">Confirm password</label><input type="password" name="confirm_password" placeholder="Repeat password" required /></div>
+          <div style="font-size:.68rem; color:var(--ink-faint); margin-bottom:1rem; line-height:1.6;">
+            By creating an account you agree to our
+            <a style="color:var(--amber); cursor:pointer;">Terms of Service</a> and
+            <a style="color:var(--amber); cursor:pointer;">Privacy Policy</a>.
           </div>
+          <button type="submit" class="btn-amber" style="width:100%;">Create Account →</button>
+        </form>
+      </div>
 
-        </div><!-- /.auth-form-box -->
+      <!-- Step 2b: Provider Form -->
+      <div class="signup-step" id="signup-s2-provider">
+        <div class="auth-form-title" style="font-size:1.35rem;">Create your account</div>
+        <p class="auth-form-sub" style="margin-bottom:1.1rem;">Service Provider · <a onclick="goSignupStep1()" style="cursor:pointer;">Change role</a></p>
+        <form method="POST" action="{{ url_for('main.signup') }}">
+          <input type="hidden" name="role" value="provider" />
+          <div class="form-row cols-2">
+            <div class="form-field"><label class="label">First name</label><input type="text" name="first_name" placeholder="Marcus" required /></div>
+            <div class="form-field"><label class="label">Last name</label><input type="text" name="last_name" placeholder="Rivera" required /></div>
+          </div>
+          <div class="form-field"><label class="label">Email address</label><input type="email" name="email" placeholder="you@email.com" required /></div>
+          <div class="form-row cols-2">
+            <div class="form-field"><label class="label">Phone</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000" /></div>
+            <div class="form-field"><label class="label">Zip code</label><input type="text" name="zip_code" placeholder="75080" /></div>
+          </div>
+          <div class="form-field">
+            <label class="label">Primary trade / service</label>
+            <select name="primary_trade">
+              <option value="">Select a category…</option>
+              {% for cat in categories %}
+              <option value="{{ cat.category_name }}">{{ cat.category_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-row cols-2">
+            <div class="form-field"><label class="label">City</label><input type="text" name="city" placeholder="Richardson" /></div>
+            <div class="form-field"><label class="label">Hourly rate ($)</label><input type="number" name="rate" placeholder="e.g. 75" min="15" /></div>
+          </div>
+          <div class="form-field">
+            <label class="label">Short bio</label>
+            <textarea name="bio" rows="2" placeholder="Describe your services, experience, and what makes you stand out…" style="min-height:60px;"></textarea>
+          </div>
+          <div class="form-field"><label class="label">Password</label><input type="password" name="password" placeholder="Min. 8 characters" required minlength="8" /></div>
+          <div class="form-field"><label class="label">Confirm password</label><input type="password" name="confirm_password" placeholder="Repeat password" required /></div>
+          <div style="font-size:.67rem; color:var(--ink-faint); margin-bottom:.85rem; line-height:1.6;">
+            Your profile will be reviewed by our team before going live. Usually within 24 hrs.
+          </div>
+          <button type="submit" class="btn-amber" style="width:100%;">Submit for Review →</button>
+        </form>
       </div>
 
     </div>
   </div>
+</div>
 
+{% endblock %}
 
-  <!-- ══════════════════════════════════════
-       PAGE: ACCOUNT
-  ══════════════════════════════════════ -->
-
+{% block scripts %}
 <script>
 var selectedRole='client';
 function selectRole(r){
@@ -160,7 +122,7 @@ function selectRole(r){
 }
 function nextSignupStep(step){
   document.querySelectorAll('.signup-step').forEach(function(s){s.classList.remove('active');});
-  if(step===1){ document.getElementById('signup-s1').classList.add('active'); }
+  if(step===1) document.getElementById('signup-s1').classList.add('active');
   else if(step===2){
     var id=selectedRole==='provider'?'signup-s2-provider':'signup-s2-client';
     document.getElementById(id).classList.add('active');
@@ -168,5 +130,4 @@ function nextSignupStep(step){
 }
 function goSignupStep1(){ nextSignupStep(1); }
 </script>
-</body>
-</html>
+{% endblock %}
