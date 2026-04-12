@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixr — My Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="home.html">fix<span>r</span></a>
+    <div class="nav-links">
+      <a class="nav-link keep" href="home.html">Find a Pro</a>
+      <a class="nav-link"      href="dashboard.html">Dashboard</a>
+      <div class="nav-sep"></div>
+      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
+      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <a class="btn-nav-outline" href="login.html">Log In</a>
+        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+    <div class="account-page">
+
+      <div class="acct-header">
+        <div class="acct-avatar-wrap">
+          <div class="avatar av-xl av-amber">JS</div>
+          <div class="acct-avatar-edit">✎</div>
+        </div>
+        <div>
+          <div class="acct-name">Jordan Smith</div>
+          <div class="acct-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="117b7e6375707f3f627c78657951747c70787d3f727e7c">[email&#160;protected]</a></div>
+          <div class="acct-badges">
+            <span class="acct-badge" style="background:var(--green-bg); color:var(--green); border-color:rgba(15,110,86,.2);">✓ Verified Email</span>
+            <span class="acct-badge" style="background:var(--amber-pale); color:var(--copper); border-color:rgba(146,64,14,.2);">Client</span>
+            <span class="acct-badge" style="background:rgba(255,255,255,.06); color:rgba(255,255,255,.5); border-color:rgba(255,255,255,.1);">Member since 2025</span>
+          </div>
+        </div>
+        <button class="btn-outline" style="margin-left:auto; color:rgba(255,255,255,.6); border-color:rgba(255,255,255,.2); font-size:.7rem;" onclick="window.location.href='home.html'">← Back to Search</button>
+      </div>
+
+      <div class="acct-body">
+        <div class="acct-tabs">
+          <button class="acct-tab active" onclick="showAcctTab('profile', this)">Profile</button>
+          <button class="acct-tab"        onclick="showAcctTab('saved', this)">Saved Providers</button>
+          <button class="acct-tab"        onclick="showAcctTab('settings', this)">Notifications</button>
+        </div>
+
+        <!-- Tab: Profile -->
+        <div class="acct-tab-content active" id="acct-tab-profile">
+          <div class="profile-photo-upload">
+            <div class="avatar av-lg av-amber">JS</div>
+            <div>
+              <div style="font-size:.82rem; font-weight:500; color:var(--ink);">Profile Photo</div>
+              <div style="font-size:.7rem; color:var(--ink-faint); margin-top:.2rem;">JPG or PNG, at least 200×200px</div>
+            </div>
+            <div class="upload-zone" style="padding:.5rem 1rem; flex:0; white-space:nowrap; font-size:.72rem; border-radius:var(--r);">Upload Photo</div>
+          </div>
+
+          <div class="acct-grid">
+
+            <div>
+              <div style="font-size:.78rem; font-weight:500; color:var(--ink); margin-bottom:1rem;">Personal Information</div>
+              <div class="form-row cols-2">
+                <div class="form-field"><label class="label">First name</label><input type="text" value="Jordan" /></div>
+                <div class="form-field"><label class="label">Last name</label><input type="text" value="Smith" /></div>
+              </div>
+              <div class="form-field"><label class="label">Email address</label><input type="email" value="jordan.smith@email.com" /></div>
+              <div class="form-field"><label class="label">Phone number</label><input type="tel" value="+1 (972) 555-0142" /></div>
+              <div class="form-row cols-2">
+                <div class="form-field"><label class="label">City</label><input type="text" value="Richardson" /></div>
+                <div class="form-field"><label class="label">Zip code</label><input type="text" value="75080" /></div>
+              </div>
+              <button class="btn-primary" style="font-size:.72rem; padding:.65rem 1.25rem;">Save Changes</button>
+            </div>
+
+            <div>
+              <div style="font-size:.78rem; font-weight:500; color:var(--ink); margin-bottom:1rem;">Security</div>
+              <div class="form-field"><label class="label">Current password</label><input type="password" placeholder="Enter current password" /></div>
+              <div class="form-field"><label class="label">New password</label><input type="password" placeholder="Min. 8 characters" /></div>
+              <div class="form-field"><label class="label">Confirm new password</label><input type="password" placeholder="Repeat new password" /></div>
+              <button class="btn-outline" style="font-size:.72rem; padding:.6rem 1.25rem;">Update Password</button>
+
+              <div class="divider"></div>
+
+              <div style="font-size:.78rem; font-weight:500; color:var(--ink); margin-bottom:.75rem;">Payment Methods</div>
+              <div style="background:var(--cream-dim); border:1px solid var(--border); border-radius:var(--r); padding:.85rem 1rem; display:flex; align-items:center; gap:.75rem; font-size:.78rem; color:var(--ink-muted); margin-bottom:.6rem;">
+                <span style="font-size:1.1rem;">💳</span> Visa ending in 4242
+                <span style="margin-left:auto; font-size:.65rem; color:var(--green);">Default</span>
+              </div>
+              <button class="btn-outline" style="font-size:.68rem; padding:.5rem 1rem;">+ Add Payment Method</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab: Saved Providers -->
+        <div class="acct-tab-content" id="acct-tab-saved">
+          <div class="saved-grid">
+            <div class="saved-card" onclick="window.location.href='provider-profile.html'">
+              <img class="saved-photo" src="https://picsum.photos/seed/plumb-work1/300/160" alt="Marcus" onerror="this.style.background='var(--amber-pale)';" />
+              <div class="saved-info">
+                <div class="saved-name">Marcus Rivera</div>
+                <div class="saved-trade">Plumbing</div>
+                <div class="rating-row" style="margin-top:.3rem;"><span class="stars-lit" style="font-size:.65rem;">★★★★★</span><span class="rating-num" style="font-size:.65rem;">4.9</span></div>
+              </div>
+            </div>
+            <div class="saved-card" onclick="window.location.href='provider-profile.html'">
+              <img class="saved-photo" src="https://picsum.photos/seed/kitchen2/300/160" alt="Diane" onerror="this.style.background='var(--cream-dim)';" />
+              <div class="saved-info">
+                <div class="saved-name">Diane Kim</div>
+                <div class="saved-trade">Fixtures & Plumbing</div>
+                <div class="rating-row" style="margin-top:.3rem;"><span class="stars-lit" style="font-size:.65rem;">★★★★★</span><span class="rating-num" style="font-size:.65rem;">4.8</span></div>
+              </div>
+            </div>
+            <div class="saved-card" onclick="window.location.href='provider-profile.html'">
+              <img class="saved-photo" src="https://picsum.photos/seed/wood3/300/160" alt="James" onerror="this.style.background='var(--cream-dim)';" />
+              <div class="saved-info">
+                <div class="saved-name">James Thornton</div>
+                <div class="saved-trade">Carpentry</div>
+                <div class="rating-row" style="margin-top:.3rem;"><span class="stars-lit" style="font-size:.65rem;">★★★★</span><span class="rating-num" style="font-size:.65rem;">4.7</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Notifications -->
+        <div class="acct-tab-content" id="acct-tab-settings">
+          <div style="max-width:500px;">
+            <div style="font-size:.78rem; font-weight:500; color:var(--ink); margin-bottom:1rem;">Notification Preferences</div>
+            <div class="notification-row">
+              <div class="notif-info"><div class="notif-title">Booking confirmations</div><div class="notif-sub">When a provider accepts or declines your booking</div></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="notification-row">
+              <div class="notif-info"><div class="notif-title">New messages</div><div class="notif-sub">When a provider sends you a message</div></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="notification-row">
+              <div class="notif-info"><div class="notif-title">Job reminders</div><div class="notif-sub">24hr and 1hr reminders before a scheduled job</div></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="notification-row">
+              <div class="notif-info"><div class="notif-title">Review requests</div><div class="notif-sub">After a job is completed, prompt to leave a review</div></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="notification-row">
+              <div class="notif-info"><div class="notif-title">Marketing & tips</div><div class="notif-sub">Seasonal home maintenance tips and platform updates</div></div>
+              <div class="toggle" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <button class="btn-primary" style="font-size:.72rem; padding:.65rem 1.25rem; margin-top:1.25rem;">Save Preferences</button>
+          </div>
+        </div>
+
+      </div><!-- /.acct-body -->
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       PAGE: DASHBOARD
+  ══════════════════════════════════════ -->
+
+<script>
+function showAcctTab(name,btn){
+  document.querySelectorAll('.acct-tab-content').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.acct-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('acct-tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

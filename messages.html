@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixr — Messages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="home.html">fix<span>r</span></a>
+    <div class="nav-links">
+      <a class="nav-link keep" href="home.html">Find a Pro</a>
+      <a class="nav-link"      href="dashboard.html">Dashboard</a>
+      <div class="nav-sep"></div>
+      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
+      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <a class="btn-nav-outline" href="login.html">Log In</a>
+        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+    <div class="msgs-page">
+
+      <!-- Conversation Sidebar -->
+      <div class="msgs-sidebar">
+        <div class="msgs-sidebar-header">
+          <div class="msgs-title">Messages</div>
+          <div class="msgs-search">
+            <span class="msgs-search-icon">🔍</span>
+            <input type="text" placeholder="Search conversations…"
+              style="background:var(--cream); border-radius:100px; padding:.45rem 1rem .45rem 2rem; font-size:.73rem;" />
+          </div>
+        </div>
+
+        <div class="conv-list">
+          <div class="conv-item active" onclick="selectConv(this, 'Marcus Rivera', 'mr')">
+            <div class="avatar av-sm av-amber">MR</div>
+            <div class="conv-info">
+              <div class="conv-name">Marcus Rivera</div>
+              <div class="conv-preview">I can come by Saturday at 10am</div>
+            </div>
+            <div class="conv-meta">
+              <div class="conv-time">2h ago</div>
+              <div class="conv-unread">2</div>
+            </div>
+          </div>
+
+          <div class="conv-item" onclick="selectConv(this, 'Sandra Chen', 'sc')">
+            <div class="avatar av-sm av-teal">SC</div>
+            <div class="conv-info">
+              <div class="conv-name">Sandra Chen</div>
+              <div class="conv-preview">Does 3pm Thursday work for you?</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">Yesterday</div></div>
+          </div>
+
+          <div class="conv-item" onclick="selectConv(this, 'James Thornton', 'jt')">
+            <div class="avatar av-sm av-copper">JT</div>
+            <div class="conv-info">
+              <div class="conv-name">James Thornton</div>
+              <div class="conv-preview">Job complete! Let me know if anything needs touch-up.</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">Apr 3</div></div>
+          </div>
+
+          <div class="conv-item" onclick="selectConv(this, 'Diane Kim', 'dk')">
+            <div class="avatar av-sm av-teal" style="background:rgba(20,150,100,.12); color:#0a7055;">DK</div>
+            <div class="conv-info">
+              <div class="conv-name">Diane Kim</div>
+              <div class="conv-preview">Thanks for the 5-star review!</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">Mar 22</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Area -->
+      <div class="chat-area">
+
+        <div class="chat-header">
+          <div class="avatar av-md av-amber">MR</div>
+          <div class="chat-header-info">
+            <div class="chat-header-name" id="chat-prov-name">Marcus Rivera</div>
+            <div class="chat-header-status"><span class="online-dot"></span> Online · Master Plumber</div>
+          </div>
+          <button class="btn-outline" style="font-size:.65rem; padding:.38rem .8rem;" onclick="window.location.href='provider-profile.html'">View Profile</button>
+          <button class="btn-amber"   style="font-size:.65rem; padding:.38rem .8rem;" onclick="window.location.href='booking.html'">Book →</button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg-row">
+            <div class="avatar av-sm av-amber">MR</div>
+            <div>
+              <div class="msg-bubble theirs">Hi Jordan! I saw your request about the kitchen sink leak. I've handled dozens of similar cases — usually it's a supply line or P-trap. Happy to come take a look.</div>
+              <div class="msg-time">10:14 AM</div>
+            </div>
+          </div>
+
+          <div class="msg-row mine">
+            <div>
+              <div class="msg-bubble mine">Thanks Marcus! Yes it started 2 days ago — water pooling under the cabinet. Not sure if it's from the drain or the supply lines.</div>
+              <div class="msg-time mine">10:18 AM</div>
+            </div>
+          </div>
+
+          <div class="msg-row">
+            <div class="avatar av-sm av-amber">MR</div>
+            <div>
+              <div class="msg-bubble theirs">Sounds like the P-trap or a compression fitting — very common. Either way it's usually a quick fix. Do you have a shutoff valve under the sink? If so, go ahead and close it to stop the dripping for now.</div>
+              <div class="msg-time">10:21 AM</div>
+            </div>
+          </div>
+
+          <div class="msg-row mine">
+            <div>
+              <div class="msg-bubble mine">Yes there's a shutoff, I'll close it now. When can you come out?</div>
+              <div class="msg-time mine">10:23 AM</div>
+            </div>
+          </div>
+
+          <div class="msg-row">
+            <div class="avatar av-sm av-amber">MR</div>
+            <div>
+              <div class="msg-bubble theirs">I can come by Saturday at 10am — that's my earliest opening. I'll bring parts for both common scenarios so we don't have to make a parts run mid-job.</div>
+              <div class="msg-time">10:26 AM</div>
+            </div>
+          </div>
+
+          <div class="msg-row mine">
+            <div>
+              <div class="msg-bubble mine">Saturday at 10am works perfectly. Going to go ahead and book through the app now.</div>
+              <div class="msg-time mine">10:28 AM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-row">
+          <textarea id="chat-input" rows="1" placeholder="Type a message…"></textarea>
+          <button class="btn-send" onclick="sendMsg()">➤</button>
+        </div>
+
+      </div><!-- /.chat-area -->
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       PAGE: LOGIN
+  ══════════════════════════════════════ -->
+
+<script>
+function sendMsg(){
+  var inp=document.getElementById('chat-input');
+  var text=inp?inp.value.trim():''; if(!text) return;
+  var feed=document.getElementById('chat-messages');
+  var t=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  var row=document.createElement('div'); row.className='msg-row mine';
+  row.innerHTML='<div><div class="msg-bubble mine">'+text+'</div><div class="msg-time mine">'+t+'</div></div>';
+  feed.appendChild(row); inp.value=''; feed.scrollTop=feed.scrollHeight;
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var inp=document.getElementById('chat-input');
+  if(inp) inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}});
+});
+</script>
+</body>
+</html>

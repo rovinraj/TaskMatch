@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixr — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="home.html">fix<span>r</span></a>
+    <div class="nav-links">
+      <a class="nav-link keep" href="home.html">Find a Pro</a>
+      <a class="nav-link"      href="dashboard.html">Dashboard</a>
+      <div class="nav-sep"></div>
+      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
+      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <a class="btn-nav-outline" href="login.html">Log In</a>
+        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+    <div class="dash-page">
+
+      <div class="dash-header">
+        <div>
+          <div class="dash-greet">Welcome back</div>
+          <div class="dash-h1">Jordan's Dashboard</div>
+        </div>
+        <div style="font-size:.68rem; color:rgba(255,255,255,.3);">Friday, April 10, 2026</div>
+      </div>
+
+      <div class="dash-stats-row">
+        <div class="dash-stat"><div class="dash-stat-n">3</div><div class="dash-stat-l">Active Jobs</div><div class="dash-stat-d" style="color:var(--green);">↑ 1 this week</div></div>
+        <div class="dash-stat"><div class="dash-stat-n">7</div><div class="dash-stat-l">Completed</div><div class="dash-stat-d" style="color:var(--green);">↑ 2 this month</div></div>
+        <div class="dash-stat"><div class="dash-stat-n">$1,240</div><div class="dash-stat-l">Total Spent</div><div class="dash-stat-d" style="color:var(--red);">↓ vs $1,680 last mo.</div></div>
+        <div class="dash-stat"><div class="dash-stat-n">4.8★</div><div class="dash-stat-l">Avg Provider Rating</div><div class="dash-stat-d" style="color:var(--green);">↑ across 7 bookings</div></div>
+      </div>
+
+      <div class="dash-body">
+
+        <!-- Job list -->
+        <div>
+          <div class="section-eyebrow">Active & Recent Jobs</div>
+          <div class="job-list">
+            <div class="job-row">
+              <div class="job-icon">🔧</div>
+              <div class="job-info"><div class="job-title-t">Kitchen sink leak repair</div><div class="job-sub">Marcus Rivera · Sat Apr 12 · 10:00 AM</div></div>
+              <span class="status-badge s-active">Confirmed</span>
+              <button class="btn-book" onclick="window.location.href='messages.html'" style="font-size:.62rem; padding:.35rem .7rem;">Message</button>
+            </div>
+            <div class="job-row">
+              <div class="job-icon">⚡</div>
+              <div class="job-info"><div class="job-title-t">Outlet not working — living room</div><div class="job-sub">Sandra Chen · Awaiting response</div></div>
+              <span class="status-badge s-pending">Pending</span>
+              <button class="btn-book" onclick="window.location.href='messages.html'" style="font-size:.62rem; padding:.35rem .7rem;">Message</button>
+            </div>
+            <div class="job-row">
+              <div class="job-icon">🪟</div>
+              <div class="job-info"><div class="job-title-t">Window frame weatherstripping</div><div class="job-sub">James Thornton · Completed Apr 3, 2026</div></div>
+              <span class="status-badge s-done">Done</span>
+              <button class="btn-book" onclick="window.location.href='provider-profile.html'" style="font-size:.62rem; padding:.35rem .7rem; background:transparent; color:var(--amber); border:1px solid rgba(217,119,6,.3);">Review</button>
+            </div>
+            <div class="job-row">
+              <div class="job-icon">🚿</div>
+              <div class="job-info"><div class="job-title-t">Shower drain unclogging</div><div class="job-sub">Diane Kim · Completed Mar 22, 2026</div></div>
+              <span class="status-badge s-done">Done</span>
+              <button class="btn-book" onclick="window.location.href='provider-profile.html'" style="font-size:.62rem; padding:.35rem .7rem; background:transparent; color:var(--amber); border:1px solid rgba(217,119,6,.3);">Review</button>
+            </div>
+          </div>
+          <button class="btn-amber" style="margin-top:1.5rem; font-size:.72rem; padding:.7rem 1.5rem;" onclick="window.location.href='home.html'">+ New Job Request</button>
+        </div>
+
+        <!-- Activity feed -->
+        <div>
+          <div class="section-eyebrow">Recent Activity</div>
+          <div class="activity-list">
+            <div class="act-item"><div class="act-dot" style="background:var(--amber);"></div><div><strong>Booking confirmed</strong> with Marcus Rivera for April 12. Expect a call before arrival.</div></div>
+            <div class="act-item"><div class="act-dot" style="background:var(--green);"></div><div><strong>Review submitted</strong> for James Thornton — 5 stars.</div></div>
+            <div class="act-item"><div class="act-dot" style="background:#4338CA;"></div><div><strong>New message</strong> from Sandra Chen: "I can come by Thursday afternoon."</div></div>
+            <div class="act-item"><div class="act-dot" style="background:var(--red);"></div><div><strong>Job matched</strong> — "outlet not working" → Electrical category.</div></div>
+            <div class="act-item"><div class="act-dot" style="background:var(--ink-faint);"></div><div><strong>Account verified</strong> via email. You can now post requests.</div></div>
+          </div>
+
+
+</body>
+</html>

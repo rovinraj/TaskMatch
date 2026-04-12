@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixr — Find the Right Hand for Any Job</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="home.html">fix<span>r</span></a>
+    <div class="nav-links">
+      <a class="nav-link keep" href="home.html">Find a Pro</a>
+      <a class="nav-link"      href="dashboard.html">Dashboard</a>
+      <div class="nav-sep"></div>
+      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
+      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <a class="btn-nav-outline" href="login.html">Log In</a>
+        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+    <section class="hero">
+
+      <!-- Left: Problem input -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">AI-Powered Matching</div>
+
+        <h1>Describe it.<br>We'll find the <em>right</em><br>hands for it.</h1>
+
+        <p class="hero-sub">
+          No categories to browse, no guesswork. Just describe your problem —
+          our system figures out the trade, finds verified pros nearby, and
+          ranks them by fit.
+        </p>
+
+        <div class="input-card">
+          <label class="label">What's the problem?</label>
+          <textarea
+            id="problem-desc"
+            rows="3"
+            placeholder="e.g. "Water dripping under my kitchen sink and the cabinet floor is damp…""
+          ></textarea>
+
+          <div class="input-row-2" style="margin-top:.65rem;">
+            <input type="text" placeholder="📍 City or Zip Code" />
+            <input type="text" placeholder="💰 Budget (optional)" />
+          </div>
+
+          <button
+            class="btn-primary"
+            style="width:100%; margin-top:.85rem;"
+            onclick="window.location.href='results.html'"
+          >
+            Find Professionals <span>→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Stats & preview -->
+      <div class="hero-right">
+        <div class="geo-ring" style="width:360px; height:360px; bottom:-80px; right:-80px;"></div>
+        <div class="geo-ring" style="width:240px; height:240px; bottom:-20px; right:-20px;"></div>
+
+        <div class="hero-right-inner">
+          <div class="stat-grid">
+            <div class="stat-cell"><div class="stat-num">2,400+</div><div class="stat-lbl">Verified Pros</div></div>
+            <div class="stat-cell"><div class="stat-num">18k</div><div class="stat-lbl">Jobs Done</div></div>
+            <div class="stat-cell"><div class="stat-num">4.8★</div><div class="stat-lbl">Avg Rating</div></div>
+            <div class="stat-cell"><div class="stat-num">&lt;2hr</div><div class="stat-lbl">Avg Response</div></div>
+          </div>
+
+          <div style="font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.22); margin-bottom:.7rem;">
+            Recently matched
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:.6rem;">
+            <div class="mini-card">
+              <div class="avatar av-sm av-amber">MR</div>
+              <div style="flex:1;"><div class="mini-name">Marcus Rivera</div><div class="mini-trade">Plumbing</div></div>
+              <div class="mini-right"><div class="mini-stars">★★★★★</div><div class="mini-rate">$75/hr</div></div>
+            </div>
+            <div class="mini-card">
+              <div class="avatar av-sm av-teal">SC</div>
+              <div style="flex:1;"><div class="mini-name">Sandra Chen</div><div class="mini-trade">Electrical</div></div>
+              <div class="mini-right"><div class="mini-stars">★★★★★</div><div class="mini-rate">$90/hr</div></div>
+            </div>
+            <div class="mini-card">
+              <div class="avatar av-sm av-copper">JT</div>
+              <div style="flex:1;"><div class="mini-name">James Thornton</div><div class="mini-trade">Carpentry</div></div>
+              <div class="mini-right"><div class="mini-stars">★★★★☆</div><div class="mini-rate">$65/hr</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       PAGE: RESULTS
+  ══════════════════════════════════════ -->
+
+
+</body>
+</html>

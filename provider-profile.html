@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixr — Marcus Rivera · Master Plumber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="home.html">fix<span>r</span></a>
+    <div class="nav-links">
+      <a class="nav-link keep" href="home.html">Find a Pro</a>
+      <a class="nav-link"      href="dashboard.html">Dashboard</a>
+      <div class="nav-sep"></div>
+      <a class="nav-icon-btn" href="messages.html" title="Messages">✉<span class="nav-badge">2</span></a>
+      <a class="nav-icon-btn" href="account.html"  title="Account">⚙</a>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <a class="btn-nav-outline" href="login.html">Log In</a>
+        <a class="btn-nav-fill"    href="signup.html">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+    <div class="prov-page">
+
+      <!-- Cover photo hero -->
+      <div class="prov-hero">
+        <img
+          src="https://picsum.photos/seed/workshop/1200/400"
+          alt="Provider cover"
+          style="width:100%; height:100%; object-fit:cover; display:block;"
+          onerror="this.style.background='var(--steel)';"
+        />
+        <div class="prov-hero-overlay"></div>
+
+        <div class="prov-hero-nav">
+          <button class="prov-back-btn" onclick="window.location.href='results.html'">← Back to results</button>
+          <button class="btn-amber" style="font-size:.68rem; padding:.4rem .9rem;" onclick="window.location.href='messages.html'">✉ Message</button>
+        </div>
+
+        <div class="prov-avatar-wrap">
+          <div class="prov-avatar av-amber" style="background:rgba(217,119,6,.2); color:#D97706;">MR</div>
+        </div>
+      </div>
+
+      <!-- Body: main info + sticky booking panel -->
+      <div class="prov-body">
+
+        <div class="prov-main">
+
+          <!-- Header row -->
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:.5rem;">
+            <div>
+              <div class="prov-name">Marcus Rivera</div>
+              <div class="prov-trade">Master Plumber · Richardson, TX</div>
+            </div>
+            <span class="verified-pill" style="margin-top:.35rem;">✓ Admin Verified</span>
+          </div>
+
+          <!-- Stats strip -->
+          <div class="prov-stats-row">
+            <div class="prov-stat"><div class="prov-stat-n">4.9★</div><div class="prov-stat-l">Rating</div></div>
+            <div class="prov-stat-sep"></div>
+            <div class="prov-stat"><div class="prov-stat-n">142</div><div class="prov-stat-l">Reviews</div></div>
+            <div class="prov-stat-sep"></div>
+            <div class="prov-stat"><div class="prov-stat-n">15 yrs</div><div class="prov-stat-l">Experience</div></div>
+            <div class="prov-stat-sep"></div>
+            <div class="prov-stat"><div class="prov-stat-n">&lt;1hr</div><div class="prov-stat-l">Response</div></div>
+            <div class="prov-stat-sep"></div>
+            <div class="prov-stat"><div class="prov-stat-n">98%</div><div class="prov-stat-l">Completion</div></div>
+          </div>
+
+          <!-- Specialty tags -->
+          <div class="prov-tags" style="margin-bottom:1.1rem;">
+            <span class="cat-tag amber">Leak Repair</span>
+            <span class="cat-tag amber">Emergency</span>
+            <span class="cat-tag">Drain Cleaning</span>
+            <span class="cat-tag">Pipe Replacement</span>
+            <span class="cat-tag">Water Heater</span>
+            <span class="cat-tag">Fixture Install</span>
+            <span class="cat-tag">Commercial</span>
+          </div>
+
+          <!-- Bio -->
+          <p class="prov-bio">
+            Licensed master plumber with 15 years of residential and light commercial experience across the Dallas–Fort Worth
+            area. I specialize in leak detection, emergency repairs, drain clearing, and full kitchen/bathroom fixture
+            installations. Every job comes with a written estimate, clean worksite, and a 90-day workmanship guarantee.
+            I'm fully licensed (TX Lic. #M-12840), bonded, and carry $2M general liability insurance.
+          </p>
+
+          <div class="divider"></div>
+
+          <!-- Gallery -->
+          <div class="section-eyebrow">Past Work Gallery</div>
+          <div class="gallery-grid">
+            <img class="gallery-img" src="https://picsum.photos/seed/plumb-work1/400/300" alt="Sink repair"   onerror="this.outerHTML='<div class=&quot;gallery-placeholder&quot;>🔧</div>';" />
+            <img class="gallery-img" src="https://picsum.photos/seed/plumb-work2/400/300" alt="Pipe work"    onerror="this.outerHTML='<div class=&quot;gallery-placeholder&quot;>🚿</div>';" />
+            <img class="gallery-img" src="https://picsum.photos/seed/plumb-work3/400/300" alt="Drain clear"  onerror="this.outerHTML='<div class=&quot;gallery-placeholder&quot;>🛠</div>';" />
+            <img class="gallery-img" src="https://picsum.photos/seed/plumb-work4/400/300" alt="Fixture"      onerror="this.outerHTML='<div class=&quot;gallery-placeholder&quot;>⚙️</div>';" />
+            <img class="gallery-img" src="https://picsum.photos/seed/plumb-work5/400/300" alt="Water heater" onerror="this.outerHTML='<div class=&quot;gallery-placeholder&quot;>💧</div>';" />
+            <img class="gallery-img" src="https://picsum.photos/seed/plumb-work6/400/300" alt="Bathroom reno" onerror="this.outerHTML='<div class=&quot;gallery-placeholder&quot;>🏠</div>';" />
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Reviews -->
+          <div class="section-eyebrow" style="display:flex; align-items:center; justify-content:space-between;">
+            <span>Reviews (142)</span>
+            <div class="rating-row">
+              <span class="stars-lit" style="font-size:.9rem;">★★★★★</span>
+              <span style="font-size:.82rem; color:var(--ink); font-weight:500;">4.9</span>
+            </div>
+          </div>
+
+          <div class="review-list">
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="avatar av-sm av-rose">JL</div>
+                <div class="review-meta">
+                  <div class="review-name">Jessica L.</div>
+                  <div class="rating-row" style="margin:.2rem 0;"><span class="stars-lit">★★★★★</span></div>
+                  <div class="review-date">March 28, 2026</div>
+                </div>
+              </div>
+              <p class="review-body">
+                Marcus showed up on time, diagnosed the leak in under 10 minutes, and had it fixed within the hour.
+                He even noticed a secondary issue I didn't know about and fixed that too without charging extra.
+                Absolutely will hire again.
+              </p>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="avatar av-sm av-slate">DM</div>
+                <div class="review-meta">
+                  <div class="review-name">David M.</div>
+                  <div class="rating-row" style="margin:.2rem 0;"><span class="stars-lit">★★★★★</span></div>
+                  <div class="review-date">March 14, 2026</div>
+                </div>
+              </div>
+              <p class="review-body">
+                Came out the same day for an emergency — a pipe had burst under the kitchen. Professional, calm,
+                and cleaned everything up when done. Pricing was fair and upfront with no surprises. Highly recommend.
+              </p>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="avatar av-sm av-teal">AP</div>
+                <div class="review-meta">
+                  <div class="review-name">Anita P.</div>
+                  <div class="rating-row" style="margin:.2rem 0;">
+                    <span class="stars-lit">★★★★</span>
+                    <span style="font-size:.75rem; color:var(--border-strong);">★</span>
+                  </div>
+                  <div class="review-date">February 22, 2026</div>
+                </div>
+              </div>
+              <p class="review-body">
+                Great work overall — installed a new kitchen faucet and garbage disposal. Took a bit longer than
+                estimated but Marcus communicated throughout and the result is excellent. Would hire again.
+              </p>
+            </div>
+
+          </div><!-- /.review-list -->
+
+          <!-- Leave a review form -->
+          <div class="review-form">
+            <div style="font-size:.78rem; font-weight:500; color:var(--ink); margin-bottom:.75rem;">Leave a Review</div>
+
+            <div style="margin-bottom:.75rem;">
+              <div class="label">Your rating</div>
+              <div class="stars-input" id="star-rating">
+                <button class="star-btn" onclick="setRating(1)">★</button>
+                <button class="star-btn" onclick="setRating(2)">★</button>
+                <button class="star-btn" onclick="setRating(3)">★</button>
+                <button class="star-btn" onclick="setRating(4)">★</button>
+                <button class="star-btn" onclick="setRating(5)">★</button>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="label">Your review</label>
+              <textarea rows="3" placeholder="Describe your experience with Marcus…"></textarea>
+            </div>
+
+            <button class="btn-primary" style="font-size:.72rem; padding:.65rem 1.2rem;">Submit Review</button>
+          </div>
+
+        </div><!-- /.prov-main -->
+
+        <!-- Sticky Booking Panel -->
+        <div>
+          <div class="booking-panel">
+            <div class="booking-price">$75 <span>/ hr</span></div>
+            <div class="rating-row" style="margin:.35rem 0 .6rem;">
+              <span class="stars-lit">★★★★★</span>
+              <span class="rating-num">4.9 · 142 reviews</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div style="font-size:.72rem; color:var(--ink-muted); margin-bottom:1rem; font-family:'Libre Baskerville',serif; line-height:1.6;">
+              Available <strong>today</strong> and <strong>tomorrow</strong>. Same-day slots are filling fast.
+            </div>
+
+            <button class="btn-amber"   style="width:100%; margin-bottom:.6rem;" onclick="window.location.href='booking.html'">Book Now →</button>
+            <button class="btn-outline" style="width:100%; font-size:.72rem;"    onclick="window.location.href='messages.html'">✉ Send a Message</button>
+
+            <div class="divider"></div>
+
+            <div style="font-size:.7rem; color:var(--ink-faint); line-height:1.7;">
+              <div style="margin-bottom:.35rem;">📋 Free written estimate</div>
+              <div style="margin-bottom:.35rem;">🛡 90-day workmanship guarantee</div>
+              <div style="margin-bottom:.35rem;">🔒 $2M liability insurance</div>
+              <div>💳 Pay after job is done</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.prov-body -->
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       PAGE: BOOKING FLOW
+  ══════════════════════════════════════ -->
+
+<script>
+function setRating(n){
+  document.querySelectorAll('.star-btn').forEach(function(b,i){b.classList.toggle('lit',i<n);});
+}
+</script>
+</body>
+</html>
