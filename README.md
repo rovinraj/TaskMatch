@@ -8,7 +8,6 @@ A full-stack web application that connects clients with service providers using 
 
 | Name | NetID |
 |------|-------|
-| Adeeb Iqbal (Leader) | AXI200004 |
 | Daniel Nguyen | dxn230012 |
 | Oluwadamilare Sunmola | oas222005 |
 | Steven Martinez Sanchez | sxm200191 |
